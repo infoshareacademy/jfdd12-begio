@@ -1,0 +1,52 @@
+body {
+    height: 200vh;
+}
+
+header {
+    margin: 0;
+    height: 100vh;
+    background-image: url("../img/gdansk-1044857_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+header p {
+    line-height: 100vh;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, .4);
+    font-size: 4.5vw;
+    color: #fff;
+}
+
+button {
+    position: absolute;
+    z-index: 1;
+    bottom: 10%;
+    right: 10%;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    text-transform: uppercase;
+    width: 230px;
+    height: 60px;
+    line-height: 60px;
+}
+
+@media (min-width:600px) {
+    button {
+        position: absolute;
+        z-index: 1;
+        bottom: 5%;
+        right: 5%;
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: transparent;
+        text-transform: uppercase;
+
+    }
+}
