@@ -1,8 +1,6 @@
-#hamburger {
-    display: none;
-}
+/* THIS IS MENU */
 
-#hiddenMenu {
+#hamburger {
     display: none;
 }
 
@@ -12,16 +10,14 @@
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgb(211, 167, 117);
+    background: rgb(224, 159, 84);
     font-size: 80%;
-
 }
 
 .logo {
     margin-left: 1em;
     padding-top: 0.5em;
     position: absolute;
-
 }
 
 .menu>ul {
@@ -29,13 +25,9 @@
     justify-content: flex-end;
     list-style: none;
     padding: 1em 0;
-
-
 }
 
-
-
-li {
+.menu>ul>li {
     text-transform: uppercase;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
@@ -44,59 +36,20 @@ li {
 
 }
 
-/* @media only screen and (max-width: 630px) {
-
-    .name {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 500px) and (min-width: 420px) {
-    .logo {
-        padding-top: 1em;
-        width: 3em;
-    }
-
-} */
-
-/* @media only screen and (max-width: 425px) {
-    .menu {
-        background-image: url("logo.png");
-        background-repeat: no-repeat;
-
-
-    }
-
-    .name {
-        display: none;
-    }
-
-    .menu>ul {
-        justify-content: flex-start;
-        font-size: 80%;
-        margin-left: 2em;
-    }
-
-    li {
-
-        margin-right: 1em;
-    }
-
-    .logo {
-        display: none;
-    }
-} */
-
 @media only screen and (max-width: 540px) {
+
+
     .menu {
         background-repeat: no-repeat;
         background-image: url("logo.png");
         background-position: 1em;
+        z-index: 2;
     }
 
     .menuElements {
         display: flex;
         justify-content: flex-end;
+
 
     }
 
@@ -105,9 +58,6 @@ li {
         padding: 1em 1em 1em 0;
         cursor: pointer;
     }
-
-
-
 
     .menu>ul {
         display: none;
@@ -119,31 +69,39 @@ li {
     }
 
     #hiddenMenu {
-        visibility: hidden;
-
-    }
-
-    #hiddenMenu.open {
-        visibility: visible;
+        position: fixed;
+        background: white;
         display: flex;
         flex-flow: row;
-        padding-top: 3em;
+        padding-top: 0.5em;
         color: rgb(211, 167, 117);
         justify-content: center;
         border-style: solid;
+        border-width: 2px;
         border-color: rgb(211, 167, 117);
-        box-shadow: 0 0 1em 0 grey;
+        margin-top: 2.7em;
+        box-shadow: 0 8px 2px -2px rgb(214, 214, 214);
+        left: 0;
+        right: 0;
+        z-index: 1;
+        transform: translateY(-400px);
+        transition: transform 0.3s ease-in-out;
+    }
 
-
+    #hiddenMenu.open {
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
     }
 
     #hiddenMenu>ul {
         list-style: none;
-
-
     }
 
     #hiddenMenu>ul>li {
+        text-transform: uppercase;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+        margin-right: 2em;
         padding: 1em;
     }
 
@@ -151,3 +109,5 @@ li {
         color: rgb(209, 62, 17);
     }
 }
+
+/* MENU END */
