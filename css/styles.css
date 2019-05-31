@@ -1,0 +1,153 @@
+#hamburger {
+    display: none;
+}
+
+#hiddenMenu {
+    display: none;
+}
+
+.menu {
+    margin: auto;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgb(211, 167, 117);
+    font-size: 80%;
+
+}
+
+.logo {
+    margin-left: 1em;
+    padding-top: 0.5em;
+    position: absolute;
+
+}
+
+.menu>ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 1em 0;
+
+
+}
+
+
+
+li {
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-right: 2em;
+
+
+}
+
+/* @media only screen and (max-width: 630px) {
+
+    .name {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 420px) {
+    .logo {
+        padding-top: 1em;
+        width: 3em;
+    }
+
+} */
+
+/* @media only screen and (max-width: 425px) {
+    .menu {
+        background-image: url("logo.png");
+        background-repeat: no-repeat;
+
+
+    }
+
+    .name {
+        display: none;
+    }
+
+    .menu>ul {
+        justify-content: flex-start;
+        font-size: 80%;
+        margin-left: 2em;
+    }
+
+    li {
+
+        margin-right: 1em;
+    }
+
+    .logo {
+        display: none;
+    }
+} */
+
+@media only screen and (max-width: 540px) {
+    .menu {
+        background-repeat: no-repeat;
+        background-image: url("logo.png");
+        background-position: 1em;
+    }
+
+    .menuElements {
+        display: flex;
+        justify-content: flex-end;
+
+    }
+
+    #hamburger {
+        display: block;
+        padding: 1em 1em 1em 0;
+        cursor: pointer;
+    }
+
+
+
+
+    .menu>ul {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+
+    }
+
+    #hiddenMenu {
+        visibility: hidden;
+
+    }
+
+    #hiddenMenu.open {
+        visibility: visible;
+        display: flex;
+        flex-flow: row;
+        padding-top: 3em;
+        color: rgb(211, 167, 117);
+        justify-content: center;
+        border-style: solid;
+        border-color: rgb(211, 167, 117);
+        box-shadow: 0 0 1em 0 grey;
+
+
+    }
+
+    #hiddenMenu>ul {
+        list-style: none;
+
+
+    }
+
+    #hiddenMenu>ul>li {
+        padding: 1em;
+    }
+
+    #hiddenMenu>ul>li:hover {
+        color: rgb(209, 62, 17);
+    }
+}
