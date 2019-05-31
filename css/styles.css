@@ -2,6 +2,15 @@ body {
     height: 200vh;
 }
 
+/* hero start */
+
+.headerTitle {
+    position: relative;
+    background-color: rgba(0, 0, 0, .4);
+    height: 100vh;
+
+}
+
 header {
     margin: 0;
     height: 100vh;
@@ -14,31 +23,42 @@ header {
 }
 
 header p {
-    line-height: 100vh;
+    width: 100%;
+    position: absolute;
+    line-height: 150%;
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    background-color: rgba(0, 0, 0, .4);
-    font-size: 4.5vw;
+    font-size: 7.5vw;
     color: #fff;
 }
 
-button {
+
+header p:first-child {
+    top: 39%
+}
+
+header p:nth-child(2) {
+    top: 56%;
+    font-size: 2.5vw;
+}
+
+header button {
     position: absolute;
     z-index: 1;
     bottom: 10%;
-    right: 10%;
+    right: calc(50% - 230px/2);
     border: 1px solid #fff;
     color: #fff;
     background-color: transparent;
     text-transform: uppercase;
     width: 230px;
     height: 60px;
-    line-height: 60px;
+    transition: .5s;
 }
 
 @media (min-width:600px) {
-    button {
+    header button {
         position: absolute;
         z-index: 1;
         bottom: 5%;
@@ -48,5 +68,30 @@ button {
         background-color: transparent;
         text-transform: uppercase;
 
+
     }
+
+    header p:first-child {
+        top: 20%;
+    }
+
+    header p:nth-child(2) {
+
+        top: 70%;
+        font-size: 2.5vw;
+    }
+
+
+
+    button:hover {
+        letter-spacing: 5px;
+        color: black;
+        background-color: #fff;
+        border: 20px solid transparent;
+        box-shadow: 0 0 0 1px #fff;
+    }
+
+
 }
+
+/* hero end */
