@@ -25,12 +25,16 @@
         <div></div>
     </section>
     <!-- dej emaila -->
-    <section class="mail">
-        <form action="" method="POST">
-            <label> Contact us: </label>
-            <input type="email" name="email adress" placeholder="your_mail@gmail.com">
-            <button>send</button>
+    <section class="contactUs">
+        <div class="infoHead">
+            <h2>Badzmy w kontakcie</h2>
+            <p>Podaj nam swojego maija a damy Ci znac gdy nasza aplikacja bedzie gotowa. Przeslemy Ci tylko jedna wiadomosc.</p>
+        </div>
+        <form class="form" action="" method="POST">
+            <input type="email" name="email" placeholder="adres email"  required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <button>wyslij</button>
         </form>
+        <p>* Uzupelniajac formularz zgadzasz się na przetwarzanie swoich informacji osobowych zgodnie z naszą Polityką Prywatności.</p>
     </section>
     <!-- drużyna -->
     <section class="team">

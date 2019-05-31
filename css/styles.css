@@ -2,59 +2,89 @@
     box-sizing: border-box;
 }
 
-body {
+body {/* for now */
     margin-top: 200px; /* for now */
     padding: 0;
-    font-family: Helvetica, Verdana, sans-serif;
+    font-family: sans-serif;
     background-color: #ADD8E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.mail{
+
+.contactUs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: gainsboro;
+    border-radius: 10px;
+    width: 80%;
+
+}
+
+.infoHead > h2{
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.infoHead > p{
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 2em;
+}
+
+.contactUs > form {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: nowrap;
-}
-.mail > form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
 }
 
-.mail > form > label{
+/*.contactUs > form > label{
     font-size: 1em;
     text-align: center;
-}
+    color: white;
+}*/
 
-.mail > form > input{
+
+.contactUs > form > input{
     width: 200px;
     height: 32px;
     padding: 15px; 
-    border: 1px solid #ccc; 
+    border: 1px solid gray; 
     border-radius: 4px;
     box-sizing: border-box; 
     font-size: 1em;
+    text-align: left;
 }
 
-.mail > form > button{
+.contactUs > form > button{
     width: 50px;
     height: 25px;
     background-color: #4CAF50;
-    border: 1px solid #ccc; 
+    border: 1px solid gray; 
     color: white;
     text-align: center;
     font-size: 1em;
     border-radius: 4px;
 }
 
+.contactUs > p{
+    text-align: center;
+    font-size: 0.7em;
+}
+
+
 @media (max-width:499px){
-    .mail > form {
+    .contactUs > form {
         flex-direction: column;
         align-items: flex-start;
     } 
 
-    .mail > form > label{
+    .contactUs > form > label{
         order: -1;
     }
     
