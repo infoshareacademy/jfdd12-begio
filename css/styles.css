@@ -12,6 +12,7 @@
     top: 0;
     background: rgb(224, 159, 84);
     font-size: 80%;
+    z-index: 1;
 }
 
 .logo {
@@ -34,6 +35,10 @@
     margin-right: 2em;
 
 
+}
+
+#hiddenMenu {
+    display: none;
 }
 
 @media only screen and (max-width: 540px) {
@@ -67,6 +72,8 @@
         display: none;
 
     }
+
+
 
     #hiddenMenu {
         position: fixed;
