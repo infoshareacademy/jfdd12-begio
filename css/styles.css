@@ -13,19 +13,16 @@
 }
 
 .featsLong .test img {
-    width: 50%;
+    width: 10%;
     height: 50%;
     flex: 0 0 10px;
     align-items: flex-start;
 }
 
-.img1 {
-    width: 50%;
-    height: auto;
-}
-
 .featsLong article {
-    background: burlywood;
+    background-image: url(../cool-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20px;
 }
 
