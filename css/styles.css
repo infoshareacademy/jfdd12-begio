@@ -12,7 +12,7 @@ h2.featsTitle {
     justify-content: space-around;
     align-items: center;
     background-color: #ccc;
-    transition: .3s;
+
 
 
 }
@@ -24,8 +24,7 @@ h2.featsTitle {
     height: 70vw;
     margin: 20px;
     background-color: #333;
-    /* border-radius: 50%; */
-    transition: .3s;
+    border-radius: 15%;
     overflow: hidden;
 
 }
@@ -41,7 +40,7 @@ h2.featsTitle {
     font-size: 80px;
     text-align: center;
     margin: calc(50% - 92px/2) 0;
-    transition: .3s;
+
     padding: 0 20px;
 }
 
@@ -73,6 +72,7 @@ h2.featsTitle {
     visibility: visible;
     opacity: 1;
 }
+
 
 /* @media (min-width:1280px) {
 
