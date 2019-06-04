@@ -5,12 +5,13 @@
 }
 
 .menu {
+    border: 0 none;
     margin: auto;
     color: white;
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgb(224, 159, 84);
+    background: rgb(228, 108, 28);
     font-size: 80%;
     z-index: 1;
 }
@@ -25,30 +26,35 @@
     display: flex;
     justify-content: flex-end;
     list-style: none;
-    padding: 1em 0;
+    padding-right: 5em;
+    font-size: 1.4em;
+
 }
 
 .menu>ul>li {
-    text-transform: uppercase;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    margin-right: 2em;
+    margin: 0.8em 3em 0.8em 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
 
 
 }
+
+
 
 #hiddenMenu {
     display: none;
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 965px) {
 
 
     .menu {
         background-repeat: no-repeat;
-        background-image: url("logo.png");
+        background-image: url("logo2.png");
         background-position: 1em;
         z-index: 2;
+        padding-top: 1.5em;
     }
 
     .menuElements {
@@ -60,8 +66,9 @@
 
     #hamburger {
         display: block;
-        padding: 1em 1em 1em 0;
+        padding-bottom: 1.5em;
         cursor: pointer;
+        margin-right: 3em;
     }
 
     .menu>ul {
@@ -80,14 +87,12 @@
         background: white;
         display: flex;
         flex-flow: row;
-        padding-top: 0.5em;
-        color: rgb(211, 167, 117);
+        padding-top: 4.5em;
+        color: rgb(228, 108, 28);
         justify-content: center;
         border-style: solid;
         border-width: 2px;
-        border-color: rgb(211, 167, 117);
-        margin-top: 2.7em;
-        box-shadow: 0 8px 2px -2px rgb(214, 214, 214);
+        border-color: rgb(228, 108, 28);
         left: 0;
         right: 0;
         z-index: 1;
@@ -105,15 +110,23 @@
     }
 
     #hiddenMenu>ul>li {
-        text-transform: uppercase;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-weight: bold;
+
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
         margin-right: 2em;
         padding: 1em;
     }
 
     #hiddenMenu>ul>li:hover {
-        color: rgb(209, 62, 17);
+        color: rgb(218, 82, 29);
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .menu {
+        background-repeat: no-repeat;
+        background-image: url("logo.png");
     }
 }
 
