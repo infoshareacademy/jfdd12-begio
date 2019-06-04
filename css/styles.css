@@ -37,7 +37,6 @@ h2.featsTitle {
     font-size: 80px;
     text-align: center;
     margin: calc(50% - 92px/2) 0;
-
     padding: 0 20px;
 }
 
@@ -50,6 +49,7 @@ h2.featsTitle {
     font-size: 20px;
     text-align: center;
     visibility: hidden;
+    margin: calc(50% - 111px/2) 0;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
@@ -79,6 +79,18 @@ h2.featsTitle {
         margin: 3% auto;
         flex-direction: row;
         align-items: center;
+    }
+
+    .feats p {
+
+        font-size: 80px;
+        text-align: center;
+        margin: calc(50% - 92px/2) 0;
+        padding: 0 20px;
+    }
+
+    .feats p:nth-child(2) {
+        margin: calc(50% - 92px/2) 0;
     }
 
     .featsShort div {
