@@ -7,38 +7,20 @@ body {/* for now */
     padding: 0;
     font-family: sans-serif;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .team{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.membersBlock{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-  }
-
-
-.membersBlock > div{
-    padding: 0.5em;
-    margin: 0.5em;
-    border-radius: 1em;
-  }
-  
-.mediaLink{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+.membersBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+} 
 
 .mediaLink > a > img{
     width:42px;
@@ -46,12 +28,13 @@ body {/* for now */
     border:0;
 }
 
+.mediaLink > a {
+  margin: 4px;
+}
 
-  @media (max-width:499px){
+  @media (max-width:700px){
     .membersBlock{
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      text-align: center;
     }
 }
