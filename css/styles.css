@@ -65,15 +65,21 @@
 
 
     .featsLong h2 {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .featsLong article {
         background: rgba(204, 196, 196, 0.555);
         padding: 50px;
+        padding-top: 50px;
         width: 50%;
 
 
+    }
+
+
+    .featsLong article:last-child {
+        padding-top: 50px;
     }
 
     .featsLong article p {
