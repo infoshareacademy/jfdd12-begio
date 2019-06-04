@@ -1,7 +1,7 @@
+/* Short Features start */
 h2.featsTitle {
     text-align: center;
     font-size: 5vw;
-
 }
 
 .featsShort {
@@ -12,9 +12,6 @@ h2.featsTitle {
     justify-content: space-around;
     align-items: center;
     background-color: #ccc;
-
-
-
 }
 
 .featsShort div {
@@ -44,9 +41,6 @@ h2.featsTitle {
     padding: 0 20px;
 }
 
-/* .feat2 {
-    margin: calc(50%) 0;
-} */
 
 .feats p:nth-child(1) {
     transition: visibility 0s, opacity 0.5s linear;
@@ -55,7 +49,6 @@ h2.featsTitle {
 .feats p:nth-child(2) {
     font-size: 20px;
     text-align: center;
-    /* margin: calc(50% - 92px/2) 0; */
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
@@ -74,24 +67,6 @@ h2.featsTitle {
 }
 
 
-/* @media (min-width:1280px) {
-
-
-    .featsShort {
-        margin: 3% auto;
-        
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .featsShort div {
-        width: 200px;
-        height: 200px;
-        margin: 20px;
-        background-color: #333;
-    }
-} */
-
 @media (min-width:1280px) {
 
     h2.featsTitle {
@@ -102,7 +77,6 @@ h2.featsTitle {
 
     .featsShort {
         margin: 3% auto;
-        /* width: 80%; */
         flex-direction: row;
         align-items: center;
     }
@@ -114,3 +88,5 @@ h2.featsTitle {
         background-color: #333;
     }
 }
+
+/* Short features end */
