@@ -1,3 +1,9 @@
+h2.featsTitle {
+    text-align: center;
+    font-size: 5vw;
+
+}
+
 .featsShort {
     width: 100%;
     margin: 0 auto;
@@ -6,37 +12,74 @@
     justify-content: space-around;
     align-items: center;
     background-color: #ccc;
+    transition: .3s;
 
 
 }
 
 .featsShort div {
+
     color: #fff;
     width: 70vw;
     height: 70vw;
     margin: 20px;
     background-color: #333;
-    border-radius: 50%
+    /* border-radius: 50%; */
+    transition: .3s;
+    overflow: hidden;
+
 }
 
-.feat1 {
-    position: relative;
+.feats {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
 }
 
-.feat1 p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.feats p {
+
+    font-size: 80px;
     text-align: center;
+    margin: calc(50% - 92px/2) 0;
+    transition: .3s;
+    padding: 0 20px;
+}
+
+/* .feat2 {
+    margin: calc(50%) 0;
+} */
+
+.feats p:nth-child(1) {
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.feats p:nth-child(2) {
+    font-size: 20px;
+    text-align: center;
+    /* margin: calc(50% - 92px/2) 0; */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+
+.feats:hover p:nth-child(1) {
+    visibility: hidden;
+    opacity: 0;
+    order: 1;
 }
 
 
-@media (min-width:1280px) {
+.feats:hover p:nth-child(2) {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* @media (min-width:1280px) {
 
 
     .featsShort {
         margin: 3% auto;
-        /* width: 80%; */
+        
         flex-direction: row;
         align-items: center;
     }
@@ -47,9 +90,16 @@
         margin: 20px;
         background-color: #333;
     }
-}
+} */
 
-@media (min-width:1600px) {
+@media (min-width:1280px) {
+
+    h2.featsTitle {
+        text-align: center;
+        font-size: 3vw;
+
+    }
+
     .featsShort {
         margin: 3% auto;
         /* width: 80%; */
@@ -63,5 +113,4 @@
         margin: 20px;
         background-color: #333;
     }
-}
 }
