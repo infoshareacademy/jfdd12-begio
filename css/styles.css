@@ -179,21 +179,21 @@
     background-color: #10C982;
     padding: 0.5em;
 }
-    
+
 .infoHead>h2 {
     text-align: center;
     font-size: 1.5em;
     margin: 0;
     color: white;
 }
-    
+
 .infoHead>p {
     text-align: center;
     font-size: 0.8em;
     margin-bottom: 2em;
     color: white;
 }
-    
+
 .mailForm {
     display: flex;
     flex-direction: row;
@@ -201,7 +201,7 @@
     align-items: center;
     flex-wrap: nowrap;
 }
-    
+
 .mailForm>input {
     width: 200px;
     height: 32px;
@@ -212,7 +212,7 @@
     font-size: 1em;
     text-align: left;
 }
-    
+
 .mailForm>button {
     background-color: #10C982;
     border: 2px solid white;
@@ -223,25 +223,124 @@
     margin-left: 1em;
     padding: .5em;
 }
-    
+
 .contactUs>p {
     text-align: center;
     font-size: 0.7em;
     color: white;
 }
-    
+
 @media (max-width:499px) {
     .mailForm {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .mailForm>label {
         order: -1;
     }
+
     .mailForm>button {
         margin-left: 0;
         margin-top: 0.3em;
     }
-    
+
 }
- /* MAIL END */
+
+/* MAIL END */
+/* featsLong-start */
+.featsLong {
+    margin: 0px;
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background-image: url(../beach-coast-dawn-903005.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+.featsLong .itemHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.featsLong .itemHeader i {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 40px;
+}
+
+.featsLong article {
+    background: rgba(204, 196, 196, 0.555);
+    padding: 50px;
+    padding-bottom: 0px;
+
+}
+
+.featsLong article p {
+
+    color: rgb(12, 14, 13);
+    font-weight: normal;
+    text-align: left;
+
+}
+
+.featsLong article:last-child {
+    padding-top: 0;
+}
+
+.featsLong h2 {
+    text-align: center;
+    font-size: 20px;
+    font-size: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(9, 85, 85);
+    margin: 10px, 0;
+}
+
+@media (min-width: 800px) {
+
+    .featsLong {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+
+    .featsLong h2 {
+        font-size: 20px;
+
+    }
+
+    .featsLong article {
+        background: rgba(204, 196, 196, 0.555);
+        padding: 50px;
+        padding-top: 50px;
+        width: 50%;
+
+
+    }
+
+
+    .featsLong article:last-child {
+        padding-top: 50px;
+    }
+
+    .featsLong article p {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .featsLong .itemHeader {
+
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+}
+
+/* featsLong-end */
