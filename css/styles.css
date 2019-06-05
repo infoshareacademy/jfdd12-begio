@@ -1,81 +1,3 @@
-.contactUs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
-    font-family: sans-serif;
-    background-color: #10C982;
-    padding: 0.5em;
-
-}
-
-.infoHead>h2 {
-    text-align: center;
-    font-size: 1.5em;
-    margin: 0;
-    color: white;
-}
-
-.infoHead>p {
-    text-align: center;
-    font-size: 0.8em;
-    margin-bottom: 2em;
-    color: white;
-}
-
-.mailForm {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-}
-
-.mailForm>input {
-    width: 200px;
-    height: 32px;
-    padding: 15px;
-    border: 1px solid white;
-    border-radius: 0.5em;
-    box-sizing: border-box;
-    font-size: 1em;
-    text-align: left;
-}
-
-.mailForm>button {
-    background-color: #10C982;
-    border: 2px solid white;
-    color: white;
-    text-align: center;
-    font-size: 1em;
-    border-radius: 0.7em;
-    margin-left: 1em;
-    padding: .5em;
-}
-
-.contactUs>p {
-    text-align: center;
-    font-size: 0.7em;
-    color: white;
-}
-
-
-@media (max-width:499px) {
-    .mailForm {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .mailForm>label {
-        order: -1;
-    }
-
-    .mailForm>button {
-        margin-left: 0;
-        margin-top: 0.3em;
-    }
-
-}
 /* THIS IS MENU */
 
 #hamburger {
@@ -113,8 +35,6 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     transition: 0.5s;
     padding: 0.15em;
-
-
 }
 
 .menu>ul>li>a:link {
@@ -128,21 +48,15 @@
 }
 
 .menu>ul>li:hover {
-
     border-radius: 50%;
     background: rgb(218, 82, 29);
-
 }
-
-
 
 #hiddenMenu {
     display: none;
 }
 
 @media only screen and (max-width: 965px) {
-
-
     .menu {
         background-repeat: no-repeat;
         background-image: url("logo2.png");
@@ -154,8 +68,6 @@
     .menuElements {
         display: flex;
         justify-content: flex-end;
-
-
     }
 
     #hamburger {
@@ -171,10 +83,7 @@
 
     .logo {
         display: none;
-
     }
-
-
 
     #hiddenMenu {
         position: fixed;
@@ -200,11 +109,9 @@
 
     #hiddenMenu>ul {
         list-style: none;
-
     }
 
     #hiddenMenu>ul>li {
-
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         text-align: center;
         margin-right: 2em;
@@ -223,7 +130,6 @@
     }
 
     #hiddenMenu>ul>li:hover {
-
         background: rgba(218, 83, 29, 0.192);
     }
 }
@@ -237,7 +143,6 @@
 
 /* MENU END */
 
-
 /* FOOTER START */
 
 .footer ul {
@@ -246,7 +151,6 @@
     list-style: none;
     justify-content: space-between;
     padding: 2em;
-
 }
 
 .footer>ul>li {
@@ -263,4 +167,81 @@
     }
 }
 
-    /* FOOTER END */
+/* FOOTER END */
+
+/* MAIL START */
+.contactUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-family: sans-serif;
+    background-color: #10C982;
+    padding: 0.5em;
+}
+    
+.infoHead>h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    color: white;
+}
+    
+.infoHead>p {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 2em;
+    color: white;
+}
+    
+.mailForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+    
+.mailForm>input {
+    width: 200px;
+    height: 32px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    text-align: left;
+}
+    
+.mailForm>button {
+    background-color: #10C982;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 0.7em;
+    margin-left: 1em;
+    padding: .5em;
+}
+    
+.contactUs>p {
+    text-align: center;
+    font-size: 0.7em;
+    color: white;
+}
+    
+@media (max-width:499px) {
+    .mailForm {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .mailForm>label {
+        order: -1;
+    }
+    .mailForm>button {
+        margin-left: 0;
+        margin-top: 0.3em;
+    }
+    
+}
+ /* MAIL END */
