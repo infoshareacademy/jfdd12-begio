@@ -14,8 +14,8 @@
 
 .featsLong .itemHeader {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .featsLong .itemHeader i {
@@ -35,7 +35,7 @@
 
     color: rgb(12, 14, 13);
     font-weight: normal;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -63,6 +63,7 @@
 
     .featsLong h2 {
         font-size: 20px;
+
     }
 
     .featsLong article {
@@ -81,8 +82,15 @@
 
     .featsLong article p {
         font-weight: bold;
-        text-align: center;
+        text-align: left;
     }
+
+    .featsLong .itemHeader {
+
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
 }
 
 /* featsLong-end */
