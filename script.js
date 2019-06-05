@@ -1,7 +1,8 @@
 var content = document.getElementById("hiddenMenu");
 var button = document.getElementById("hamburger");
 
-button.onclick = function () {
+button.addEventListener('click', function (event) {
+    event.stopPropagation();
 
     if (content.className == "open") {
 
@@ -18,11 +19,12 @@ button.onclick = function () {
 
         // document.body.style.background = "rgba(0,0,0,0.3)"
     }
-};
+})
 
-var clickMenu = document.getElementById("hiddenMenu")
-var content2 = document.getElementById("hiddenMenu");
-clickMenu.onclick = function () {
-    content2.className = "";
+
+var body = document.getElementById("body")
+body.addEventListener('click', function () {
+
+    content.className = "";
     button.innerHTML = '<img src="img/hamburger.png">'
-}
+})
