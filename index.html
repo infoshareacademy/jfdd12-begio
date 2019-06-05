@@ -10,12 +10,40 @@
     <title>PlanImpGda</title>
 </head>
 
-<body>
-
+<body id="body">
     <!-- menu -->
-    <nav class="menu"></nav>
+    <div class="fixed-nav">
+        <nav class="menu" id="menu">
+            <div class="menuElements">
+                <img class="logo" src="img/logo.png">
+                <a id="hamburger"><img src="img/hamburger.png"></a>
+            </div>
+            <ul>
+
+                <li><a href="#">Home</a></li>
+                <li><a href="#">O aplikacji</a></li>
+                <li><a href="#">Zapisz się!</a></li>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Szczegóły</a></li>
+            </ul>
+        </nav>
+        <div id="hiddenMenu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">O aplikacji</a></li>
+                <li><a href="#">Zapisz się!</a></li>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Szczegóły</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- mobile menu -->
+
+
     <header>
+        <p>Zaplanuj swój weekend w Gdańsku</p>
         <!-- hero -->
+        <button>Zapisz się!</button>
     </header>
     <!-- 4 ikonki -->
     <section class="featsShort">
@@ -44,8 +72,28 @@
     <section class="featsLong">
 
     </section>
+    <footer class="footer">
+        <ul>
+            <li><a href="#"><img src="img/facebook.png"></a>
+                <p>Odwiedź nas!</p>
+            </li>
+            <li><a href="#"></a><img src="img/terms.png"></a>
+                <p>Warunki korzystania</p>
+            </li>
+            <li><a href="#"></a><img src="img/law.png"></a>
+                <p>Prawa Autorskie</p>
+            </li>
+            <li><a href="#"></a><img src="img/cal.png"></a>
+                <p>Ostatnia aktualizacja</p>
+            </li>
+            <li><a href="#"></a><img src="img/terms.png"></a>
+                <p>Data wydania</p>
+            </li>
+        </ul>
 
-
+    </footer>
+    <script src="script.js">
+    </script>
 </body>
 
 </html>
