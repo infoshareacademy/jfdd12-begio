@@ -1,25 +1,10 @@
-* {
-    box-sizing: border-box;
-}
-
-body {/* for now */
-    margin-top: 200px; /* for now */
-    padding: 0;
-    font-family: sans-serif;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .contactUs{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
+    font-family: sans-serif;
     background-color: #10C982;
-    border-radius: 10px;
-    width: 80%;
     padding: 0.5em;
 
 }
