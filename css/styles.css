@@ -1,7 +1,4 @@
-* {
-    box-sizing: border-box
-}
-
+/* długa lista funkcjonalności */
 .featsLong {
     margin: 0px;
     display: flex;
