@@ -1,0 +1,78 @@
+.contactUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-family: sans-serif;
+    background-color: #10C982;
+    padding: 0.5em;
+
+}
+
+.infoHead>h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
+    color: white;
+}
+
+.infoHead>p {
+    text-align: center;
+    font-size: 0.8em;
+    margin-bottom: 2em;
+    color: white;
+}
+
+.mailForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.mailForm>input {
+    width: 200px;
+    height: 32px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    font-size: 1em;
+    text-align: left;
+}
+
+.mailForm>button {
+    background-color: #10C982;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 0.7em;
+    margin-left: 1em;
+    padding: .5em;
+}
+
+.contactUs>p {
+    text-align: center;
+    font-size: 0.7em;
+    color: white;
+}
+
+
+@media (max-width:499px) {
+    .mailForm {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mailForm>label {
+        order: -1;
+    }
+
+    .mailForm>button {
+        margin-left: 0;
+        margin-top: 0.3em;
+    }
+
+}
