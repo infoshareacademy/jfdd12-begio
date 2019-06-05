@@ -1,4 +1,4 @@
-/* długa lista funkcjonalności */
+/* featsLong-start */
 .featsLong {
     margin: 0px;
     display: flex;
@@ -84,3 +84,5 @@
         text-align: center;
     }
 }
+
+/* featsLong-end */
