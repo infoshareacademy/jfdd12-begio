@@ -1,19 +1,18 @@
-body {
-    height: 200vh;
-}
-
 /* hero start */
+
+.bgc {
+    background-color: rgba(0, 0, 0, .4);
+}
 
 .headerTitle {
     position: relative;
-    background-color: rgba(0, 0, 0, .4);
     height: 100vh;
 
 }
 
-header {
+header.hero {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("../img/gdansk-1044857_1920.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,7 +21,7 @@ header {
     font-family: sans-serif;
 }
 
-header p {
+header.hero p {
     width: 100%;
     position: absolute;
     line-height: 150%;
@@ -34,16 +33,16 @@ header p {
 }
 
 
-header p:first-child {
+.bgc p:first-child {
     top: 39%
 }
 
-header p:nth-child(2) {
+.bgc p:nth-child(2) {
     top: 56%;
     font-size: 2.5vw;
 }
 
-header button {
+.bgc button {
     position: absolute;
     z-index: 1;
     bottom: 10%;
@@ -58,7 +57,7 @@ header button {
 }
 
 @media (min-width:600px) {
-    header button {
+    .bgc button {
         position: absolute;
         z-index: 1;
         bottom: 5%;
@@ -71,11 +70,11 @@ header button {
 
     }
 
-    header p:first-child {
+    .bgc p:first-child {
         top: 20%;
     }
 
-    header p:nth-child(2) {
+    .bgc p:nth-child(2) {
 
         top: 70%;
         font-size: 2.4vw;
@@ -83,15 +82,68 @@ header button {
 
 
 
-    button:hover {
-        letter-spacing: 5px;
+    .bgc button:hover {
+        /* letter-spacing: 5px; */
         color: black;
         background-color: #fff;
-        border: 20px solid transparent;
-        box-shadow: 0 0 0 1px #fff;
+        /* border: 20px solid transparent; */
+        /* box-shadow: 0 0 0 1px #fff; */
+
     }
 
 
 }
+
+@media (max-height:480px) {
+
+
+    .headerTitle {
+        height: calc(100vh - 80px)
+    }
+
+    .bgc button {
+        margin-bottom: 20px;
+        left: calc(50% - 230px/2);
+        position: relative;
+
+    }
+
+    .bgc p:first-child {
+        top: 13%;
+    }
+
+    .bgc p:nth-child(2) {
+
+        top: 70%;
+        font-size: 2.4vw;
+    }
+}
+
+@media (max-height:480px) and (max-width:600px) {
+
+
+    .headerTitle {
+        height: calc(100vh - 80px)
+    }
+
+    .bgc button {
+        margin-bottom: 20px;
+        left: calc(50% - 230px/2);
+        position: relative;
+
+    }
+
+    .bgc p:first-child {
+        top: 13%;
+    }
+
+    .bgc p:nth-child(2) {
+
+        top: 70%;
+        font-size: 2.4vw;
+    }
+
+}
+
 
 /* hero end */
