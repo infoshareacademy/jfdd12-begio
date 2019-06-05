@@ -344,3 +344,33 @@
 }
 
 /* featsLong-end */
+.team{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.membersBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+} 
+
+.mediaLink > a > img{
+    width:42px;
+    height:42px;
+    border:0;
+}
+
+.mediaLink > a {
+  margin: 4px;
+}
+
+  @media (max-width:700px){
+    .membersBlock{
+      display: flex;
+      flex-direction: column;
+    }
+}
