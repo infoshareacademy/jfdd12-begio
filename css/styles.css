@@ -4,10 +4,6 @@
     display: none;
 }
 
-body {
-    height: 100vh;
-}
-
 .menu {
     border: 0 none;
     margin: auto;
@@ -187,6 +183,6 @@ body {
         flex-flow: row wrap;
         justify-content: center;
     }
-
+}
 
     /* FOOTER END */
