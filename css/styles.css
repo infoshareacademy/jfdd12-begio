@@ -107,7 +107,7 @@ body {
         left: 0;
         right: 0;
         z-index: 1;
-        transform: translateY(-400px);
+        transform: translateY(-500px);
         transition: transform 0.3s ease-in-out;
     }
 
@@ -179,6 +179,14 @@ body {
     text-align: center;
 }
 
+.footer>ul>li>a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.footer>ul>li>a:visited {
+    color: white;
+}
 
 @media only screen and (max-width: 630px) {
     .footer ul {
@@ -248,6 +256,16 @@ body {
     text-align: center;
     font-size: 1em;
     color: white;
+}
+
+.mediaLink>a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.mediaLink>a:hover {
+    padding-left: 0.5em;
+
 }
 
 @media (max-width:499px) {
