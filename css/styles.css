@@ -517,6 +517,10 @@ header.hero p {
     text-align: center;
 }
 
+.membersBlock > div > img {
+    border-radius: 50%;
+  }
+  
 .mediaLink>a>img {
     width: 42px;
     height: 42px;
