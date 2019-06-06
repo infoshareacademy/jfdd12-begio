@@ -340,37 +340,191 @@
         justify-content: flex-start;
         align-items: flex-start;
     }
+}
+
+/* hero start */
+
+.bgc {
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.headerTitle {
+    position: relative;
+    min-height: 100vh;
 
 }
 
-/* featsLong-end */
-.team{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-family: sans-serif;
+header.hero {
+    /* padding-top: 11%; */
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("../img/gdansk-1044857_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+header.hero p {
+    width: 100%;
+    position: absolute;
+    line-height: 150%;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 7.5vw;
+    color: #fff;
+}
+
+
+.bgc p:first-child {
+    top: 39%
+}
+
+.bgc p:nth-child(2) {
+    top: 56%;
+    font-size: 2.5vw;
+}
+
+.bgc button {
+    position: absolute;
+    z-index: 1;
+    bottom: 10%;
+    right: calc(50% - 230px/2);
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    text-transform: uppercase;
+    width: 230px;
+    height: 60px;
+    transition: .5s;
+}
+
+
+@media (min-width:600px) {
+    /* header.hero {
+        padding-top: 0;
+    } */
+
+    .bgc button {
+        position: absolute;
+        z-index: 1;
+        bottom: 5%;
+        right: 5%;
+        border: 1px solid #fff;
+        color: #fff;
+        background-color: transparent;
+        text-transform: uppercase;
+
+
+    }
+
+    .bgc p:first-child {
+        top: 20%;
+    }
+
+    .bgc p:nth-child(2) {
+
+        top: 70%;
+        font-size: 2.4vw;
+    }
+
+
+
+    .bgc button:hover {
+        /* letter-spacing: 5px; */
+        color: black;
+        background-color: #fff;
+        border: 2px solid white;
+        /* box-shadow: 0 0 0 1px #fff; */
+
+    }
+
+}
+
+@media (max-height:480px) {
+    /* .hero {
+        padding-top: 10%;
+    } */
+
+    .headerTitle {
+        height: calc(100vh - 80px)
+    }
+
+    .bgc button {
+        margin-bottom: 20px;
+        left: calc(50% - 230px/2);
+        position: relative;
+
+    }
+
+    .bgc p:first-child {
+        top: 28%;
+    }
+
+    .bgc p:nth-child(2) {
+
+        top: 70%;
+        font-size: 2.4vw;
+    }
+}
+
+@media (max-height:480px) and (max-width:600px) {
+
+
+    .headerTitle {
+        height: calc(100vh - 80px)
+    }
+
+    .bgc button {
+        margin-bottom: 20px;
+        left: calc(50% - 230px/2);
+        position: relative;
+
+    }
+
+    .bgc p:first-child {
+        top: 30%;
+    }
+
+    .bgc p:nth-child(2) {
+
+        top: 70%;
+        font-size: 2.4vw;
+    }
+
+
+}
+
+
+.team {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: sans-serif;
 }
 
 .membersBlock {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  text-align: center;
-} 
-
-.mediaLink > a > img{
-    width:42px;
-    height:42px;
-    border:0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
-.mediaLink > a {
-  margin: 4px;
+.mediaLink>a>img {
+    width: 42px;
+    height: 42px;
+    border: 0;
 }
 
-  @media (max-width:700px){
-    .membersBlock{
-      display: flex;
-      flex-direction: column;
+.mediaLink>a {
+    margin: 4px;
+}
+
+@media (max-width:700px) {
+    .membersBlock {
+        display: flex;
+        flex-direction: column;
     }
 }
