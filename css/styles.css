@@ -300,19 +300,22 @@ body {
 
 /* MAIL END */
 /* featsLong-start */
+
 .featsLong {
     margin: 0px;
-    display: flex;
     width: 100%;
     height: auto;
-    flex-direction: column;
     background: white;
-
-
-
 }
 
+.featsLong .h2featsLong {
+    font-size: 2em;
+}
 
+.featsLong .articlesContainer {
+    display: flex;
+    flex-direction: column;
+}
 
 .featsLong .itemHeader {
     display: flex;
@@ -324,6 +327,10 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     color: #AAA6BA;
+}
+
+.featsLong .itemHeader>h2 {
+    font-size: 1em;
 }
 
 .featsLong .itemHeader>i::before {
@@ -353,7 +360,7 @@ body {
 
 .featsLong h2 {
     text-align: center;
-    font-size: 1em;
+    font-size: 1.5em;
     font-size: bold;
 
     color: #49406d;
@@ -362,16 +369,14 @@ body {
 
 @media (min-width: 800px) {
 
-    .featsLong {
+    .featsLong .articlesContainer {
         display: flex;
         flex-direction: row;
-
+        flex-wrap: nowrap;
     }
 
-
-    .featsLong h2 {
-        font-size: 20px;
-
+    .featsLong .h2featsLong {
+        font-size: 2.5em;
     }
 
     .featsLong article {
@@ -379,8 +384,6 @@ body {
         padding: 50px;
         padding-top: 50px;
         width: 50%;
-
-
     }
 
 
