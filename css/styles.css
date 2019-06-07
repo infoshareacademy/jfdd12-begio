@@ -224,6 +224,10 @@
     padding: .5em;
 }
 
+.mailForm>button:hover{
+    background: rgba(250, 250, 250, 0.555);
+}
+
 .contactUs>p {
     text-align: center;
     font-size: 0.7em;
@@ -517,9 +521,19 @@ header.hero p {
     text-align: center;
 }
 
-.membersBlock > div > img {
+.circularPortrait {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
     border-radius: 50%;
-  }
+    margin: 1em;
+}
+  
+  .circulaPortrait img {
+    width: 100%;
+    height: auto;
+}
   
 .mediaLink>a>img {
     width: 42px;
