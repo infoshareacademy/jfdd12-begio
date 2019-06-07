@@ -269,6 +269,10 @@ body {
     font-weight: bold;
 }
 
+.mailForm>button:hover{
+    background: rgba(173, 160, 160, 0.555);
+}
+
 .contactUs>p {
     text-align: center;
     font-size: 1em;
@@ -574,11 +578,21 @@ header.hero p {
 }
 
 .membersBlock {
-
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+
+.teamMember {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     text-align: center;
+}
+
+.teamMember h3{
+    font-size: 0.7em;
 }
 
 .mediaLink>a>img {
@@ -591,7 +605,14 @@ header.hero p {
     margin: 4px;
 }
 
-@media (max-width:700px) {
+.circularPortrait img {
+    border-radius: 50%;
+    margin-bottom: 1em;
+    width: auto;
+}
+  
+
+@media (max-width:900px) {
     .membersBlock {
         display: flex;
         flex-direction: column;
