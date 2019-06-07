@@ -602,66 +602,67 @@ h2.featsTitle {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: #AAA6BA;
 }
 
 .featsShort div {
-
+    position: relative;
     color: rgb(255, 255, 255);
     width: 70vw;
     height: 70vw;
-    margin: 20px;
+    margin: 5% 0;
     background-color: #49406d;
     border-radius: 15%;
-    overflow: hidden;
 
 }
 
 .feats {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
+
 }
 
 .feats p {
-
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 80px;
     text-align: center;
-    margin: calc(50% - 92px/2) 0;
-    padding: 0 20px;
 }
 
 
 .feats p:nth-child(1) {
+    opacity: 1;
     transition: visibility 0s, opacity 0.5s linear;
 }
 
 .feats p:nth-child(2) {
     font-size: 20px;
     text-align: center;
-    visibility: hidden;
-    margin: calc(50% - 111px/2) 0;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
 
 .feats:hover p:nth-child(1) {
-    visibility: hidden;
     opacity: 0;
-    order: 1;
 }
 
 
 .feats:hover p:nth-child(2) {
-    visibility: visible;
+    /* visibility: visible; */
     opacity: 1;
 }
 
 
-@media (min-width:1350px) {
+@media (min-width:600px) {
 
     h2.featsTitle {
         text-align: center;
@@ -676,23 +677,28 @@ h2.featsTitle {
     }
 
     .feats p {
-
+        width: 95%;
         font-size: 80px;
         text-align: center;
-        margin: calc(50% - 92px/2) 0;
         padding: 0 20px;
     }
 
     .feats p:nth-child(2) {
-        margin: calc(50% - 92px/2) 0;
+        font-size: 20px;
+        /* margin: calc(50% - 92px/2) 0; */
     }
 
     .featsShort div {
-        width: 300px;
-        height: 300px;
-        margin: 20px;
+        /* width: 25vw; */
+        height: 50vw;
+        max-height: 300px;
+        max-width: 300px;
+        margin: 2%;
         background-color: #4a416e;
-
+        /* flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 50vw; */
+        flex: 1 0 50vw;
     }
 }
 
