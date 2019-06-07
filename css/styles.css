@@ -1,3 +1,11 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 /* THIS IS MENU */
 
 #hamburger {
@@ -10,7 +18,7 @@
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgb(228, 108, 28);
+    background: rgba(74, 65, 110, 0.671);
     font-size: 80%;
     z-index: 1;
 }
@@ -32,7 +40,6 @@
 
 .menu>ul>li {
     margin: 0.8em 3em 0.8em 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     transition: 0.5s;
     padding: 0.15em;
 }
@@ -47,22 +54,24 @@
     color: white;
 }
 
-.menu>ul>li:hover {
-    border-radius: 50%;
-    background: rgb(218, 82, 29);
+.menu>ul>li>a:hover {
+    transition: 0.3s;
+    color: #AAA6BA;
+
 }
 
 #hiddenMenu {
     display: none;
 }
 
-@media only screen and (max-width: 965px) {
+@media only screen and (max-width: 1187px) {
     .menu {
         background-repeat: no-repeat;
         background-image: url("logo2.png");
         background-position: 1em;
         z-index: 2;
         padding-top: 1.5em;
+        transition: 0.3s;
     }
 
     .menuElements {
@@ -87,18 +96,18 @@
 
     #hiddenMenu {
         position: fixed;
-        background: white;
+        background: rgba(255, 255, 255, 0.589);
         display: flex;
         flex-flow: row;
         padding-top: 4.5em;
         justify-content: center;
         border-style: solid;
         border-width: 2px;
-        border-color: rgb(228, 108, 28);
+        border-color: white;
         left: 0;
         right: 0;
         z-index: 1;
-        transform: translateY(-400px);
+        transform: translateY(-500px);
         transition: transform 0.3s ease-in-out;
     }
 
@@ -112,7 +121,6 @@
     }
 
     #hiddenMenu>ul>li {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         text-align: center;
         margin-right: 2em;
         padding: 1em;
@@ -121,16 +129,17 @@
 
     #hiddenMenu>ul>li>a:link {
         text-decoration: none;
-        color: rgb(228, 108, 28);
+        color: #4a416e;
     }
 
     #hiddenMenu>ul>li>a:visited {
         text-decoration: none;
-        color: rgb(228, 108, 28);
+        color: rgb(23, 20, 34);
     }
 
     #hiddenMenu>ul>li:hover {
-        background: rgba(218, 83, 29, 0.192);
+        margin-right: 1.2em;
+        font-weight: bold;
     }
 }
 
@@ -144,6 +153,11 @@
 /* MENU END */
 
 /* FOOTER START */
+.footer {
+    transition: 2s;
+    background: #AAA6BA;
+    color: white;
+}
 
 .footer ul {
     display: flex;
@@ -153,12 +167,26 @@
     padding: 2em;
 }
 
+.footer li:hover {
+    transition: 0.3s;
+    border-radius: 3em;
+    background: rgba(255, 255, 255, 0.185);
+}
+
 .footer>ul>li {
     padding: 1em;
     font-size: 1.2em;
     text-align: center;
 }
 
+.footer>ul>li>a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.footer>ul>li>a:visited {
+    color: white;
+}
 
 @media only screen and (max-width: 630px) {
     .footer ul {
@@ -175,21 +203,20 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    font-family: sans-serif;
-    background-color: #10C982;
-    padding: 0.5em;
+    background-color: #AAA6BA;
+    padding: 10em 0.5em;
 }
 
 .infoHead>h2 {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 3em;
     margin: 0;
     color: white;
 }
 
 .infoHead>p {
     text-align: center;
-    font-size: 0.8em;
+    font-size: 1.5em;
     margin-bottom: 2em;
     color: white;
 }
@@ -203,8 +230,8 @@
 }
 
 .mailForm>input {
-    width: 200px;
-    height: 32px;
+    width: 15em;
+    height: 40px;
     padding: 15px;
     border: 1px solid white;
     border-radius: 0.5em;
@@ -214,20 +241,35 @@
 }
 
 .mailForm>button {
-    background-color: #10C982;
+    background-color: rgb(74, 65, 110);
     border: 2px solid white;
     color: white;
     text-align: center;
     font-size: 1em;
     border-radius: 0.7em;
     margin-left: 1em;
-    padding: .5em;
+    padding: 0.5em 1.5em;
+    font-weight: bold;
+}
+
+.mailForm>button:hover{
+    background: rgba(173, 160, 160, 0.555);
 }
 
 .contactUs>p {
     text-align: center;
-    font-size: 0.7em;
+    font-size: 1em;
     color: white;
+}
+
+.mediaLink>a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.mediaLink>a:hover {
+    padding-left: 0.5em;
+
 }
 
 @media (max-width:499px) {
@@ -255,12 +297,13 @@
     width: 100%;
     height: auto;
     flex-direction: column;
-    background-image: url(../beach-coast-dawn-903005.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background: white;
+
+
 
 }
+
+
 
 .featsLong .itemHeader {
     display: flex;
@@ -271,6 +314,7 @@
 .featsLong .itemHeader i {
     margin-left: 20px;
     margin-right: 20px;
+    color: #AAA6BA;
 }
 
 .featsLong .itemHeader>i::before {
@@ -280,14 +324,14 @@
 
 
 .featsLong article {
-    background: rgba(204, 196, 196, 0.555);
+
     padding-bottom: 0px;
 
 }
 
 .featsLong article p {
 
-    color: rgb(12, 14, 13);
+    color: #AAA6BA;
     font-weight: normal;
     text-align: left;
     margin-left: 20px;
@@ -302,8 +346,8 @@
     text-align: center;
     font-size: 1em;
     font-size: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(9, 85, 85);
+
+    color: #49406d;
     line-height: 40px;
 }
 
@@ -322,7 +366,7 @@
     }
 
     .featsLong article {
-        background: rgba(204, 196, 196, 0.555);
+
         padding: 50px;
         padding-top: 50px;
         width: 50%;
@@ -363,13 +407,18 @@
 header.hero {
     /* padding-top: 11%; */
     margin: 0;
+<<<<<<< HEAD
     height: 100vh;
     background-image: url("../img/gdansk-1044857_1920.jpg");
+=======
+    min-height: 100vh;
+    background-image: url("../img/photo.png");
+>>>>>>> teamPhoto2222222
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 95%;
     background-attachment: fixed;
-    font-family: sans-serif;
+
 }
 
 header.hero p {
@@ -378,7 +427,7 @@ header.hero p {
     line-height: 150%;
     margin: 0;
     text-align: center;
-    text-transform: uppercase;
+
     font-size: 7.5vw;
     color: #fff;
 }
@@ -505,17 +554,31 @@ header.hero p {
 
 
 .team {
+    padding: 3em 0;
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-family: sans-serif;
+    font-size: 2em;
+    background: #49406d;
+    color: white;
 }
 
 .membersBlock {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+
+.teamMember {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     text-align: center;
+}
+
+.teamMember h3{
+    font-size: 0.7em;
 }
 
 .mediaLink>a>img {
@@ -528,7 +591,14 @@ header.hero p {
     margin: 4px;
 }
 
-@media (max-width:700px) {
+.circularPortrait img {
+    border-radius: 50%;
+    margin-bottom: 1em;
+    width: auto;
+}
+  
+
+@media (max-width:900px) {
     .membersBlock {
         display: flex;
         flex-direction: column;
@@ -539,6 +609,7 @@ header.hero p {
 h2.featsTitle {
     text-align: center;
     font-size: 5vw;
+    color: #7A7786;
 }
 
 .featsShort {
@@ -548,16 +619,16 @@ h2.featsTitle {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: #ccc;
+    background-color: #AAA6BA;
 }
 
 .featsShort div {
 
-    color: #fff;
+    color: rgb(255, 255, 255);
     width: 70vw;
     height: 70vw;
     margin: 20px;
-    background-color: #333;
+    background-color: #49406d;
     border-radius: 15%;
     overflow: hidden;
 
@@ -604,7 +675,7 @@ h2.featsTitle {
 }
 
 
-@media (min-width:1280px) {
+@media (min-width:1350px) {
 
     h2.featsTitle {
         text-align: center;
@@ -634,7 +705,8 @@ h2.featsTitle {
         width: 300px;
         height: 300px;
         margin: 20px;
-        background-color: #333;
+        background-color: #4a416e;
+
     }
 }
 

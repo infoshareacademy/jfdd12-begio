@@ -24,26 +24,28 @@
             </div>
             <ul>
 
-                <li><a href="#">Home</a></li>
-                <li><a href="#">O aplikacji</a></li>
-                <li><a href="#">Zapisz się!</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Szczegóły</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#aboutShort">O aplikacji</a></li>
+                <li><a href="#email">Zapisz się!</a></li>
+                <li><a href="#us">O nas</a></li>
+                <li><a href="#aboutLong">Więcej o aplikacji</a></li>
+                <li><a href="#footer">Szczegóły</a></li>
             </ul>
         </nav>
         <div id="hiddenMenu">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">O aplikacji</a></li>
-                <li><a href="#">Zapisz się!</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Szczegóły</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#aboutShort">O aplikacji</a></li>
+                <li><a href="#email">Zapisz się!</a></li>
+                <li><a href="#us">O nas</a></li>
+                <li><a href="#aboutLong">Więcej o aplikacji</a></li>
+                <li><a href="#footer">Szczegóły</a></li>
             </ul>
         </div>
     </div>
     <!-- mobile menu -->
 
-    <header class="hero">
+    <header id="hero" class="hero">
         <div class="bgc">
             <div class="headerTitle">
                 <p>Jakie masz plany na #weekend?</p>
@@ -57,7 +59,7 @@
         </div>
     </header>
     <!-- 4 ikonki -->
-    <h2 class="featsTitle">Główne właściwości aplikacji</h2>
+    <h2 id="aboutShort" class="featsTitle">Główne właściwości aplikacji</h2>
     <section class="featsShort">
         <div class="feats feat1">
             <p><i class="far fa-calendar-alt"></i></p>
@@ -79,7 +81,7 @@
         </div>
     </section>
     <!-- dej emaila -->
-    <section class="contactUs">
+    <section id="email" class="contactUs">
         <div class="infoHead">
             <h2>Bądźmy w kontakcie</h2>
             <p>Podaj nam swojego maila a damy Ci znać, gdy nasza aplikacja będzie gotowa. Prześlemy Ci tylko jedną
@@ -94,58 +96,72 @@
             Prywatności.</p>
     </section>
     <!-- drużyna -->
-    <section class="team">
+    <section id="us" class="team">
         <h2>Nasz zespół</h2>
         <div class="membersBlock">
-            <div class="teamMember1">
+            <div class="teamMember">
                 <h3>Anna Jelińska</h3>
+                <div class="circularPortrait">
+                    <img src="img/rabbit.png" alt="Team member">
+                </div>
                 <section class="mediaLink">
                     <a href="https://www.facebook.com/ania.jelin">
-                        <img src="img/facebook-logo.png" alt="facebook page">
+                        <img src="img/facebook2.png" alt="facebook page">
                     </a>
                     <a href="https://www.google.com">
-                        <img src="img/notebook-with-contacts.png" alt="page about me">
+                        <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
             </div>
-            <div class="teamMember2">
+            <div class="teamMember">
                 <h3>Andrzej Zaborski</h3>
+                <div class="circularPortrait">
+                    <img src="img/rabbit.png" alt="Team member">
+                </div>
                 <section class="mediaLink">
                     <a href="https://www.facebook.com/andrzej.zaborski">
-                        <img src="img/facebook-logo.png" alt="facebook page">
+                        <img src="img/facebook2.png" alt="facebook page">
                     </a>
                     <a href="https://www.google.com">
-                        <img src="img/notebook-with-contacts.png" alt="page about me">
+                        <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
             </div>
-            <div class="teamMember3">
+            <div class="teamMember">
                 <h3>Łukasz Patalan</h3>
+                <div class="circularPortrait">
+                    <img src="img/rabbit.png" alt="Team member">
+                </div>
                 <section class="mediaLink">
                     <a href="https://www.facebook.com/inrestlessdream">
-                        <img src="img/facebook-logo.png" alt="facebook page">
+                        <img src="img/facebook2.png" alt="facebook page">
                     </a>
                     <a href="https://www.google.com">
-                        <img src="img/notebook-with-contacts.png" alt="page about me">
+                        <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
             </div>
-            <div class="teamMember4">
+            <div class="teamMember">
                 <h3>Kamila Kochanowska</h3>
+                <div class="circularPortrait">
+                    <img src="img/rabbit.png" alt="Team member">
+                </div>
                 <section class="mediaLink">
                     <a href="https://www.facebook.com/kamila.kochanowska.3">
-                        <img src="img/facebook-logo.png" alt="facebook page">
+                        <img src="img/facebook2.png" alt="facebook page">
                     </a>
                     <a href="https://www.google.com">
-                        <img src="img/notebook-with-contacts.png" alt="page about me">
+                        <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
             </div>
         </div>
     </section>
     <!-- długa lista funkcjonalności -->
-    <section class="featsLong">
+    <section id="aboutLong" class="featsLong">
+
         <article>
+
             <div class="itemHeader">
                 <i class="far fa-calendar-alt"></i>
                 <h2>PLAN WYDARZEŃ</h2>
@@ -205,22 +221,28 @@
         </article>
 
     </section>
-    <footer class="footer">
+    <footer id="footer" class="footer">
+
         <ul>
-            <li><a href="#"><img src="img/facebook.png"></a>
-                <p>Odwiedź nas!</p>
+            <li><a href="#"><img src="img/facebook.png">
+                    <p>Odwiedź nas!</p>
+                </a>
             </li>
-            <li><a href="#"></a><img src="img/terms.png"></a>
-                <p>Warunki korzystania</p>
+            <li><a href="#"><img src="img/terms.png">
+                    <p>Warunki korzystania</p>
+                </a>
             </li>
-            <li><a href="#"></a><img src="img/law.png"></a>
-                <p>Prawa Autorskie</p>
+            <li><a href="#"><img src="img/law.png">
+                    <p>Prawa Autorskie</p>
+                </a>
             </li>
-            <li><a href="#"></a><img src="img/cal.png"></a>
-                <p>Ostatnia aktualizacja</p>
+            <li><a href="#"><img src="img/cal.png">
+                    <p>Ostatnia aktualizacja</p>
+                </a>
             </li>
-            <li><a href="#"></a><img src="img/terms.png"></a>
-                <p>Data wydania</p>
+            <li><a href="#"><img src="img/actual.png">
+                    <p>Data wydania</p>
+                </a>
             </li>
         </ul>
 

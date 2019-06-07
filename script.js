@@ -9,14 +9,15 @@ button.addEventListener('click', function (event) {
         //gdy jest otwarty chcemy schować
         content.className = "";
         button.innerHTML = '<img src="img/hamburger.png">'
-        // document.body.style.background = "rgba(255, 255, 255, 0)"
-
+        var menu = document.getElementById('menu');
+        menu.style.backgroundColor = 'rgba(74, 65, 110, 0.671)';
 
     } else {
         //gdy zamknięty, chcemy rozwinąć: wystarczy dać class "open"
         content.className = "open"
         button.innerHTML = '<img src="img/eks.png">'
-
+        var menu = document.getElementById('menu');
+        menu.style.backgroundColor = 'rgba(74, 65, 110)';
         // document.body.style.background = "rgba(0,0,0,0.3)"
     }
 })
@@ -24,7 +25,7 @@ button.addEventListener('click', function (event) {
 
 var body = document.getElementById("body")
 body.addEventListener('click', function () {
-
+    menu.style.backgroundColor = 'rgba(74, 65, 110, 0.671)'
     content.className = "";
     button.innerHTML = '<img src="img/hamburger.png">'
 })
