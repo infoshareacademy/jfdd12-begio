@@ -211,9 +211,7 @@ body {
 /* FOOTER END */
 
 /* MAIL START */
-.mailDimmer {
-    background-color: rgba(0, 0, 0, .4);
-}
+
 
 .contactUs {
     display: flex;
