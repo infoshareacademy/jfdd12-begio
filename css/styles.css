@@ -218,7 +218,7 @@ body {
     flex-wrap: nowrap;
     background: url('contactus.jpg');
     background-position: bottom;
-    background-attachment: fixed;
+
     padding: 10em 0.5em;
 }
 
@@ -313,16 +313,20 @@ body {
     margin: 0px;
     width: 100%;
     height: auto;
-    background: white;
+    background: url('party.png');
 }
 
 .featsLong .h2featsLong {
+    padding-top: 0.5em;
     font-size: 2em;
+
 }
 
 .featsLong .articlesContainer {
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.377);
+    border-radius: 2%;
 }
 
 .featsLong .itemHeader {
@@ -334,11 +338,12 @@ body {
 .featsLong .itemHeader i {
     margin-left: 20px;
     margin-right: 20px;
-    color: #AAA6BA;
+    color: #7A7786;
 }
 
 .featsLong .itemHeader>h2 {
     font-size: 1em;
+    color: #49406d;
 }
 
 .featsLong .itemHeader>i::before {
@@ -355,7 +360,7 @@ body {
 
 .featsLong article p {
 
-    color: #AAA6BA;
+    color: #49406d;
     font-weight: normal;
     text-align: left;
     margin-left: 20px;
@@ -370,7 +375,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     font-size: bold;
-    color: #49406d;
+    color: #ffffff;
     line-height: 40px;
 }
 
@@ -567,13 +572,22 @@ header.hero p {
 
 
 .team {
-    padding: 3em 0;
+    padding-bottom: 3em;
     display: flex;
     flex-direction: column;
     text-align: center;
     font-size: 2em;
     background: #49406d;
     color: white;
+}
+
+.team>h2 {
+    font-size: 1.6em;
+    color: #49406d;
+    margin-top: 0;
+
+    padding-bottom: 0.5em;
+    background: rgb(255, 255, 255);
 }
 
 .membersBlock {
@@ -620,6 +634,7 @@ header.hero p {
 
 /* Short Features start */
 h2.featsTitle {
+    padding-top: 0.5em;
     text-align: center;
     font-size: 5vw;
     color: #7A7786;
@@ -633,7 +648,8 @@ h2.featsTitle {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background-color: #AAA6BA;
+    background: url('cechy.png');
+    background-attachment: fixed;
 }
 
 .featsShort div {
@@ -642,7 +658,7 @@ h2.featsTitle {
     width: 70vw;
     height: 70vw;
     margin: 5% 0;
-    background-color: #49406d;
+    background-color: #49406dce;
     border-radius: 15%;
 
 }
@@ -721,7 +737,7 @@ h2.featsTitle {
         max-height: 300px;
         max-width: 300px;
         margin: 2%;
-        background-color: #4a416e;
+
         /* flex-grow: 1;
         flex-shrink: 0;
         flex-basis: 50vw; */
