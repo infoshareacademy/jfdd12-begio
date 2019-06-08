@@ -218,6 +218,7 @@ body {
     flex-wrap: nowrap;
     background: url('contactus.jpg');
     background-position: bottom;
+    background-repeat: no-repeat;
 
     padding: 10em 0.5em;
 }
@@ -314,6 +315,9 @@ body {
     width: 100%;
     height: auto;
     background: url('party.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .featsLong .h2featsLong {
@@ -427,8 +431,15 @@ body {
 
 }
 
+.heroTitles {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 header.hero {
-    /* padding-top: 11%; */
     margin: 0;
     min-height: 100vh;
     background-image: url("../img/photo.png");
@@ -441,7 +452,7 @@ header.hero {
 
 header.hero p {
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     line-height: 150%;
     margin: 0;
     text-align: center;
@@ -452,12 +463,13 @@ header.hero p {
 
 
 .bgc p:first-child {
+    font-size: 10vw;
     top: 39%
 }
 
 .bgc p:nth-child(2) {
     top: 56%;
-    font-size: 2.5vw;
+    font-size: 3.5vw;
 }
 
 .bgc button {
@@ -476,9 +488,6 @@ header.hero p {
 
 
 @media (min-width:600px) {
-    /* header.hero {
-        padding-top: 0;
-    } */
 
     .bgc button {
         position: absolute;
@@ -489,37 +498,27 @@ header.hero p {
         color: #fff;
         background-color: transparent;
         text-transform: uppercase;
-
-
     }
 
     .bgc p:first-child {
-        top: 20%;
+        font-size: 7.5vw;
     }
 
     .bgc p:nth-child(2) {
-
-        top: 70%;
         font-size: 2.4vw;
     }
 
 
 
     .bgc button:hover {
-        /* letter-spacing: 5px; */
         color: black;
         background-color: #fff;
         border: 2px solid white;
-        /* box-shadow: 0 0 0 1px #fff; */
-
     }
 
 }
 
 @media (max-height:480px) {
-    /* .hero {
-        padding-top: 10%;
-    } */
 
     .headerTitle {
         height: calc(100vh - 80px)
@@ -532,13 +531,8 @@ header.hero p {
 
     }
 
-    .bgc p:first-child {
-        top: 28%;
-    }
-
     .bgc p:nth-child(2) {
 
-        top: 70%;
         font-size: 2.4vw;
     }
 }
@@ -557,13 +551,8 @@ header.hero p {
 
     }
 
-    .bgc p:first-child {
-        top: 30%;
-    }
 
     .bgc p:nth-child(2) {
-
-        top: 70%;
         font-size: 2.4vw;
     }
 
@@ -644,12 +633,13 @@ h2.featsTitle {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    /* flex-direction: column; */
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background: url('cechy.png');
     background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .featsShort div {
@@ -700,7 +690,6 @@ h2.featsTitle {
 
 
 .feats:hover p:nth-child(2) {
-    /* visibility: visible; */
     opacity: 1;
 }
 
@@ -728,19 +717,13 @@ h2.featsTitle {
 
     .feats p:nth-child(2) {
         font-size: 20px;
-        /* margin: calc(50% - 92px/2) 0; */
     }
 
     .featsShort div {
-        /* width: 25vw; */
         height: 50vw;
         max-height: 300px;
         max-width: 300px;
         margin: 2%;
-
-        /* flex-grow: 1;
-        flex-shrink: 0;
-        flex-basis: 50vw; */
         flex: 1 0 50vw;
     }
 }
