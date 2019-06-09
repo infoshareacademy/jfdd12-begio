@@ -47,14 +47,16 @@
     <header id="hero" class="hero">
         <div class="bgc">
             <div class="headerTitle">
-                <p>Jakie masz plany na #weekend?</p>
-                <p>Zaplanuj swój weekend w Gdańsku z naszą nową aplikacją. <br>Przestań prokastynować ,zacznij swój
-                    weekend
-                    planować!
-                </p>
+                <div class="heroTitles">
+                    <p>Jakie masz plany na #weekend?</p>
+                    <p>Zaplanuj swój weekend w Gdańsku z naszą nową aplikacją. <br>Przestań prokastynować ,zacznij swój
+                        weekend
+                        planować!
+                    </p>
+                </div>
             </div>
             <!-- hero -->
-            <button>Zapisz się!</button>
+            <button onclick="window.location.href = '#email'">Zapisz się!</button>
         </div>
     </header>
     <!-- 4 ikonki -->
@@ -83,7 +85,8 @@
     <section id="email" class="contactUs">
         <div class="infoHead">
             <h2>Bądźmy w kontakcie</h2>
-            <p>Podaj nam swojego maila a damy Ci znać, gdy nasza aplikacja będzie gotowa. Prześlemy Ci tylko jedną
+            <p>Podaj nam swojego maila a damy Ci znać, gdy nasza aplikacja będzie gotowa. Prześlemy Ci tylko
+                jedną
                 wiadomość.</p>
         </div>
         <form class="mailForm" action="" method="POST">
@@ -91,9 +94,11 @@
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
             <button>wyślij</button>
         </form>
-        <p>* Uzupełniając formularz zgadzasz się na przetwarzanie swoich informacji osobowych zgodnie z naszą Polityką
+        <p>* Uzupełniając formularz zgadzasz się na przetwarzanie swoich informacji osobowych zgodnie z naszą
+            Polityką
             Prywatności.</p>
     </section>
+
     <!-- drużyna -->
     <section id="us" class="team">
         <h2><img src="img/down.png"><br>Nasz zespół</h2>
