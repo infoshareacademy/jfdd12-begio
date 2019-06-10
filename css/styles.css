@@ -2,11 +2,17 @@ html {
     scroll-behavior: smooth;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* THIS IS MENU */
+
+
 
 #hamburger {
     display: none;
@@ -96,7 +102,7 @@ body {
 
     #hiddenMenu {
         position: fixed;
-        background: rgba(255, 255, 255, 0.589);
+        background: rgba(255, 255, 255, 0.849);
         display: flex;
         flex-flow: row;
         padding-top: 4.5em;
@@ -143,10 +149,17 @@ body {
     }
 }
 
+
 @media only screen and (max-width: 350px) {
     .menu {
         background-repeat: no-repeat;
         background-image: url("logo.png");
+    }
+}
+
+@media screen and (max-height: 370px) {
+    #hiddenMenu.open>ul>li {
+        padding: 0.6em;
     }
 }
 
@@ -203,7 +216,9 @@ body {
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    background-color: #AAA6BA;
+    background: url('contactus.jpg');
+    background-position: bottom;
+    background-attachment: fixed;
     padding: 10em 0.5em;
 }
 
@@ -233,7 +248,9 @@ body {
     width: 15em;
     height: 40px;
     padding: 15px;
-    border: 1px solid white;
+    border: 1px solid;
+    background: rgba(255, 255, 255, 0.5);
+    border-color: transparent;
     border-radius: 0.5em;
     box-sizing: border-box;
     font-size: 1em;
@@ -242,7 +259,7 @@ body {
 
 .mailForm>button {
     background-color: rgb(74, 65, 110);
-    border: 2px solid white;
+    border-style: none;
     color: white;
     text-align: center;
     font-size: 1em;
@@ -252,7 +269,7 @@ body {
     font-weight: bold;
 }
 
-.mailForm>button:hover{
+.mailForm>button:hover {
     background: rgba(173, 160, 160, 0.555);
 }
 
@@ -291,19 +308,22 @@ body {
 
 /* MAIL END */
 /* featsLong-start */
+
 .featsLong {
     margin: 0px;
-    display: flex;
     width: 100%;
     height: auto;
-    flex-direction: column;
     background: white;
-
-
-
 }
 
+.featsLong .h2featsLong {
+    font-size: 2em;
+}
 
+.featsLong .articlesContainer {
+    display: flex;
+    flex-direction: column;
+}
 
 .featsLong .itemHeader {
     display: flex;
@@ -315,6 +335,10 @@ body {
     margin-left: 20px;
     margin-right: 20px;
     color: #AAA6BA;
+}
+
+.featsLong .itemHeader>h2 {
+    font-size: 1em;
 }
 
 .featsLong .itemHeader>i::before {
@@ -344,25 +368,22 @@ body {
 
 .featsLong h2 {
     text-align: center;
-    font-size: 1em;
+    font-size: 1.5em;
     font-size: bold;
-
     color: #49406d;
     line-height: 40px;
 }
 
 @media (min-width: 800px) {
 
-    .featsLong {
+    .featsLong .articlesContainer {
         display: flex;
         flex-direction: row;
-
+        flex-wrap: nowrap;
     }
 
-
-    .featsLong h2 {
-        font-size: 20px;
-
+    .featsLong .h2featsLong {
+        font-size: 2.5em;
     }
 
     .featsLong article {
@@ -370,8 +391,6 @@ body {
         padding: 50px;
         padding-top: 50px;
         width: 50%;
-
-
     }
 
 
@@ -577,7 +596,7 @@ header.hero p {
     text-align: center;
 }
 
-.teamMember h3{
+.teamMember h3 {
     font-size: 0.7em;
 }
 
@@ -596,7 +615,7 @@ header.hero p {
     margin-bottom: 1em;
     width: auto;
 }
-  
+
 
 @media (max-width:900px) {
     .membersBlock {
@@ -616,66 +635,67 @@ h2.featsTitle {
     width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     background-color: #AAA6BA;
 }
 
 .featsShort div {
-
+    position: relative;
     color: rgb(255, 255, 255);
     width: 70vw;
     height: 70vw;
-    margin: 20px;
+    margin: 5% 0;
     background-color: #49406d;
     border-radius: 15%;
-    overflow: hidden;
 
 }
 
 .feats {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;
+
 }
 
 .feats p {
-
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 80px;
     text-align: center;
-    margin: calc(50% - 92px/2) 0;
-    padding: 0 20px;
 }
 
 
 .feats p:nth-child(1) {
+    opacity: 1;
     transition: visibility 0s, opacity 0.5s linear;
 }
 
 .feats p:nth-child(2) {
     font-size: 20px;
     text-align: center;
-    visibility: hidden;
-    margin: calc(50% - 111px/2) 0;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
 
 .feats:hover p:nth-child(1) {
-    visibility: hidden;
     opacity: 0;
-    order: 1;
 }
 
 
 .feats:hover p:nth-child(2) {
-    visibility: visible;
+    /* visibility: visible; */
     opacity: 1;
 }
 
 
-@media (min-width:1350px) {
+@media (min-width:600px) {
 
     h2.featsTitle {
         text-align: center;
@@ -690,23 +710,28 @@ h2.featsTitle {
     }
 
     .feats p {
-
+        width: 95%;
         font-size: 80px;
         text-align: center;
-        margin: calc(50% - 92px/2) 0;
         padding: 0 20px;
     }
 
     .feats p:nth-child(2) {
-        margin: calc(50% - 92px/2) 0;
+        font-size: 20px;
+        /* margin: calc(50% - 92px/2) 0; */
     }
 
     .featsShort div {
-        width: 300px;
-        height: 300px;
-        margin: 20px;
+        /* width: 25vw; */
+        height: 50vw;
+        max-height: 300px;
+        max-width: 300px;
+        margin: 2%;
         background-color: #4a416e;
-
+        /* flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 50vw; */
+        flex: 1 0 50vw;
     }
 }
 
