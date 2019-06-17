@@ -326,7 +326,7 @@ body {
 .featsLong .articlesContainer {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.377);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 2%;
 }
 
@@ -339,12 +339,13 @@ body {
 .featsLong .itemHeader i {
     margin-left: 20px;
     margin-right: 20px;
-    color: #7A7786;
+    color: rgb(61, 51, 107);
 }
 
 .featsLong .itemHeader>h2 {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #49406d;
+    text-align: start;
 }
 
 .featsLong .itemHeader>i::before {
