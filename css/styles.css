@@ -30,8 +30,9 @@ body {
 }
 
 .logo {
-    margin-left: 1em;
-    padding-top: 0.5em;
+
+    margin-left: 4em;
+    padding-top: 0.8em;
     position: absolute;
 }
 
@@ -70,22 +71,24 @@ body {
     display: none;
 }
 
-@media only screen and (max-width: 1187px) {
+@media only screen and (max-width: 1237px) {
     .menu {
         background-repeat: no-repeat;
-        background-image: url("logo2.png");
+        /* background-image: url("logo2.png"); */
         background-position: 1em;
         z-index: 2;
-        padding-top: 1.5em;
+
         transition: 0.3s;
     }
 
     .menuElements {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
 
     #hamburger {
+        padding-top: 1.5em;
+
         display: block;
         padding-bottom: 1.5em;
         cursor: pointer;
@@ -97,7 +100,8 @@ body {
     }
 
     .logo {
-        display: none;
+        margin-top: 0;
+        padding-top: 0.5;
     }
 
     #hiddenMenu {
@@ -150,46 +154,64 @@ body {
 }
 
 
-@media only screen and (max-width: 350px) {
-    .menu {
-        background-repeat: no-repeat;
-        background-image: url("logo.png");
+@media only screen and (max-width: 420px) {
+    .logo {
+        margin-left: 0.5em
     }
+}
+
+@media only screen and (max-width: 350px) {
+    .logo {
+        width: 65%;
+
+    }
+
 }
 
 @media screen and (max-height: 370px) {
     #hiddenMenu.open>ul>li {
         padding: 0.6em;
     }
+
 }
 
 /* MENU END */
 
 /* FOOTER START */
 .footer {
+    display: flex;
+    justify-content: space-around;
     transition: 2s;
     background: #AAA6BA;
     color: white;
 }
 
 .footer ul {
+
     display: flex;
-    flex-flow: row;
     list-style: none;
-    justify-content: space-between;
-    padding: 2em;
+
 }
 
-.footer li:hover {
-    transition: 0.3s;
-    border-radius: 3em;
-    background: rgba(255, 255, 255, 0.185);
-}
+
 
 .footer>ul>li {
+
     padding: 1em;
     font-size: 1.2em;
     text-align: center;
+
+}
+
+footer img {
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+footer img:hover {
+
+    background: rgba(255, 255, 255, 0.233);
+
 }
 
 .footer>ul>li>a:link {
@@ -201,11 +223,13 @@ body {
     color: white;
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 725px) {
     .footer ul {
         flex-flow: row wrap;
         justify-content: center;
     }
+
+
 }
 
 /* FOOTER END */
@@ -610,11 +634,12 @@ header.hero p {
 .mediaLink>a {
     margin: 4px;
 }
+
 .mediaLink>a:link {
     text-decoration: none;
     color: white;
 }
- 
+
 
 .circularPortrait img {
     border-radius: 50%;
@@ -628,7 +653,8 @@ header.hero p {
         display: flex;
         flex-direction: column;
     }
-    .teamMember{
+
+    .teamMember {
         padding-top: 3em;
     }
 }
