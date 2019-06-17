@@ -7,12 +7,11 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* THIS IS MENU */
-
-
 
 #hamburger {
     display: none;
@@ -35,35 +34,33 @@ body {
     position: absolute;
 }
 
-.menu>ul {
+.menu > ul {
     display: flex;
     justify-content: flex-end;
     list-style: none;
     padding-right: 5em;
     font-size: 1.4em;
-
 }
 
-.menu>ul>li {
+.menu > ul > li {
     margin: 0.8em 3em 0.8em 0;
     transition: 0.5s;
     padding: 0.15em;
 }
 
-.menu>ul>li>a:link {
+.menu > ul > li > a:link {
     text-decoration: none;
     color: white;
 }
 
-.menu>ul>li>a:visited {
+.menu > ul > li > a:visited {
     text-decoration: none;
     color: white;
 }
 
-.menu>ul>li>a:hover {
+.menu > ul > li > a:hover {
     transition: 0.3s;
-    color: #AAA6BA;
-
+    color: #aaa6ba;
 }
 
 #hiddenMenu {
@@ -92,7 +89,7 @@ body {
         margin-right: 3em;
     }
 
-    .menu>ul {
+    .menu > ul {
         display: none;
     }
 
@@ -122,33 +119,32 @@ body {
         transition: transform 0.3s ease-in-out;
     }
 
-    #hiddenMenu>ul {
+    #hiddenMenu > ul {
         list-style: none;
     }
 
-    #hiddenMenu>ul>li {
+    #hiddenMenu > ul > li {
         text-align: center;
         margin-right: 2em;
         padding: 1em;
         transition: 0.5s;
     }
 
-    #hiddenMenu>ul>li>a:link {
+    #hiddenMenu > ul > li > a:link {
         text-decoration: none;
         color: #4a416e;
     }
 
-    #hiddenMenu>ul>li>a:visited {
+    #hiddenMenu > ul > li > a:visited {
         text-decoration: none;
         color: rgb(23, 20, 34);
     }
 
-    #hiddenMenu>ul>li:hover {
+    #hiddenMenu > ul > li:hover {
         margin-right: 1.2em;
         font-weight: bold;
     }
 }
-
 
 @media only screen and (max-width: 350px) {
     .menu {
@@ -158,7 +154,7 @@ body {
 }
 
 @media screen and (max-height: 370px) {
-    #hiddenMenu.open>ul>li {
+    #hiddenMenu.open > ul > li {
         padding: 0.6em;
     }
 }
@@ -168,7 +164,7 @@ body {
 /* FOOTER START */
 .footer {
     transition: 2s;
-    background: #AAA6BA;
+    background: #aaa6ba;
     color: white;
 }
 
@@ -186,18 +182,18 @@ body {
     background: rgba(255, 255, 255, 0.185);
 }
 
-.footer>ul>li {
+.footer > ul > li {
     padding: 1em;
     font-size: 1.2em;
     text-align: center;
 }
 
-.footer>ul>li>a:link {
+.footer > ul > li > a:link {
     text-decoration: none;
     color: white;
 }
 
-.footer>ul>li>a:visited {
+.footer > ul > li > a:visited {
     color: white;
 }
 
@@ -212,14 +208,13 @@ body {
 
 /* MAIL START */
 
-
 .contactUs {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    background: linear-gradient(rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.3)), url('contactus.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("contactus.jpg");
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -227,14 +222,14 @@ body {
     padding: 10em 0.5em;
 }
 
-.infoHead>h2 {
+.infoHead > h2 {
     text-align: center;
     font-size: 3em;
     margin: 0;
     color: white;
 }
 
-.infoHead>p {
+.infoHead > p {
     text-align: center;
     font-size: 1.5em;
     margin-bottom: 2em;
@@ -249,7 +244,7 @@ body {
     flex-wrap: nowrap;
 }
 
-.mailForm>input {
+.mailForm > input {
     width: 15em;
     height: 40px;
     padding: 15px;
@@ -262,7 +257,7 @@ body {
     text-align: left;
 }
 
-.mailForm>button {
+.mailForm > button {
     background-color: rgb(74, 65, 110);
     border-style: none;
     color: white;
@@ -274,41 +269,39 @@ body {
     font-weight: bold;
 }
 
-.mailForm>button:hover {
+.mailForm > button:hover {
     background: rgba(173, 160, 160, 0.555);
 }
 
-.contactUs>p {
+.contactUs > p {
     text-align: center;
     font-size: 1em;
     color: white;
 }
 
-.mediaLink>a:link {
+.mediaLink > a:link {
     text-decoration: none;
     color: white;
 }
 
-.mediaLink>a:hover {
+.mediaLink > a:hover {
     padding-left: 0.5em;
-
 }
 
-@media (max-width:499px) {
+@media (max-width: 499px) {
     .mailForm {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .mailForm>label {
+    .mailForm > label {
         order: -1;
     }
 
-    .mailForm>button {
+    .mailForm > button {
         margin-left: 0;
         margin-top: 0.3em;
     }
-
 }
 
 /* MAIL END */
@@ -318,8 +311,8 @@ body {
     margin: 0px;
     width: 100%;
     height: auto;
-    background: linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.3)), url('party.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+        url("party.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -328,7 +321,6 @@ body {
 .featsLong .h2featsLong {
     padding-top: 0.5em;
     font-size: 2em;
-
 }
 
 .featsLong .articlesContainer {
@@ -347,33 +339,28 @@ body {
 .featsLong .itemHeader i {
     margin-left: 20px;
     margin-right: 20px;
-    color: #7A7786;
+    color: #7a7786;
 }
 
-.featsLong .itemHeader>h2 {
+.featsLong .itemHeader > h2 {
     font-size: 1em;
     color: #49406d;
 }
 
-.featsLong .itemHeader>i::before {
+.featsLong .itemHeader > i::before {
     font-size: 200%;
     line-height: 70px;
 }
 
-
 .featsLong article {
-
     padding-bottom: 0px;
-
 }
 
 .featsLong article p {
-
     color: #49406d;
     font-weight: normal;
     text-align: left;
     margin-left: 20px;
-
 }
 
 .featsLong article:last-child {
@@ -389,7 +376,6 @@ body {
 }
 
 @media (min-width: 800px) {
-
     .featsLong .articlesContainer {
         display: flex;
         flex-direction: row;
@@ -401,12 +387,10 @@ body {
     }
 
     .featsLong article {
-
         padding: 50px;
         padding-top: 50px;
         width: 50%;
     }
-
 
     .featsLong article:last-child {
         padding-top: 50px;
@@ -418,7 +402,6 @@ body {
     }
 
     .featsLong .itemHeader {
-
         justify-content: flex-start;
         align-items: flex-start;
     }
@@ -427,14 +410,13 @@ body {
 /* hero start */
 
 .bgc {
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .headerTitle {
     position: relative;
     height: 100vh;
     min-height: 500px;
-
 }
 
 .heroTitles {
@@ -447,18 +429,12 @@ body {
 
 header.hero {
     margin: 0;
-<<<<<<< HEAD
-    height: 100vh;
-    background-image: url("../img/gdansk-1044857_1920.jpg");
-=======
     min-height: 100vh;
     background-image: url("../img/photo.png");
->>>>>>> teamPhoto2222222
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 95%;
     background-attachment: fixed;
-
 }
 
 header.hero p {
@@ -472,10 +448,9 @@ header.hero p {
     color: #fff;
 }
 
-
 .bgc p:first-child {
     font-size: 10vw;
-    top: 39%
+    top: 39%;
 }
 
 .bgc p:nth-child(2) {
@@ -487,19 +462,17 @@ header.hero p {
     position: absolute;
     z-index: 1;
     bottom: 10%;
-    right: calc(50% - 230px/2);
+    right: calc(50% - 230px / 2);
     border: 1px solid #fff;
     color: #fff;
     background-color: transparent;
     text-transform: uppercase;
     width: 230px;
     height: 60px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-
-@media (min-width:600px) {
-
+@media (min-width: 600px) {
     .bgc button {
         position: absolute;
         z-index: 1;
@@ -519,57 +492,44 @@ header.hero p {
         font-size: 2.4vw;
     }
 
-
-
     .bgc button:hover {
         color: black;
         background-color: #fff;
         border: 2px solid white;
     }
-
 }
 
-@media (max-height:480px) {
-
+@media (max-height: 480px) {
     .headerTitle {
-        height: calc(100vh - 80px)
+        height: calc(100vh - 80px);
     }
 
     .bgc button {
         margin-bottom: 20px;
-        left: calc(50% - 230px/2);
+        left: calc(50% - 230px / 2);
         position: relative;
-
     }
 
     .bgc p:nth-child(2) {
-
         font-size: 2.4vw;
     }
 }
 
-@media (max-height:480px) and (max-width:600px) {
-
-
+@media (max-height: 480px) and (max-width: 600px) {
     .headerTitle {
-        height: calc(100vh - 80px)
+        height: calc(100vh - 80px);
     }
 
     .bgc button {
         margin-bottom: 20px;
-        left: calc(50% - 230px/2);
+        left: calc(50% - 230px / 2);
         position: relative;
-
     }
-
 
     .bgc p:nth-child(2) {
         font-size: 2.4vw;
     }
-
-
 }
-
 
 .team {
     padding-bottom: 3em;
@@ -581,7 +541,7 @@ header.hero p {
     color: white;
 }
 
-.team>h2 {
+.team > h2 {
     font-size: 1.6em;
     color: #49406d;
     margin-top: 0;
@@ -596,7 +556,6 @@ header.hero p {
     justify-content: space-evenly;
 }
 
-
 .teamMember {
     display: flex;
     flex-direction: column;
@@ -608,13 +567,13 @@ header.hero p {
     font-size: 0.7em;
 }
 
-.mediaLink>a>img {
+.mediaLink > a > img {
     width: 42px;
     height: 42px;
     border: 0;
 }
 
-.mediaLink>a {
+.mediaLink > a {
     margin: 4px;
 }
 
@@ -624,8 +583,7 @@ header.hero p {
     width: auto;
 }
 
-
-@media (max-width:900px) {
+@media (max-width: 900px) {
     .membersBlock {
         display: flex;
         flex-direction: column;
@@ -637,7 +595,7 @@ h2.featsTitle {
     padding-top: 0.5em;
     text-align: center;
     font-size: 5vw;
-    color: #7A7786;
+    color: #7a7786;
 }
 
 .featsShort {
@@ -647,7 +605,7 @@ h2.featsTitle {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    background: url('cechy.png');
+    background: url("cechy.png");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -661,13 +619,11 @@ h2.featsTitle {
     margin: 5% 0;
     background-color: #49406dce;
     border-radius: 15%;
-
 }
 
 .feats {
     display: flex;
     flex-direction: column;
-
 }
 
 .feats p {
@@ -681,7 +637,6 @@ h2.featsTitle {
     font-size: 80px;
     text-align: center;
 }
-
 
 .feats p:nth-child(1) {
     opacity: 1;
@@ -699,18 +654,14 @@ h2.featsTitle {
     opacity: 0;
 }
 
-
 .feats:hover p:nth-child(2) {
     opacity: 1;
 }
 
-
-@media (min-width:600px) {
-
+@media (min-width: 600px) {
     h2.featsTitle {
         text-align: center;
         font-size: 3vw;
-
     }
 
     .featsShort {
