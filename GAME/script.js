@@ -24,14 +24,12 @@ let manholl
 let dresik 
 let dresik2 
 
-
-const canvas = document.createElement('canvas')
-canvas.setAttribute('height', `${HEIGHT}px`)
-canvas.setAttribute('width', `${WIDTH}px`)
-const body = document.querySelector('body')
+const canvas = document.createElement("canvas")
+canvas.setAttribute("height", `${HEIGHT}px`)
+canvas.setAttribute("width", `${WIDTH}px`)
+const body = document.querySelector("body")
 body.append(canvas)
-const ctx = canvas.getContext('2d')
-
+const ctx = canvas.getContext("2d")
 
 
 function loadAllImages() {
@@ -77,32 +75,30 @@ function drawImage(image, x, y, w, h) {
   ctx.drawImage(image, x, y, w, h)
 }
 
-//rozpoczęcie gry
+let lastTime = 0
+ 
 let isPlaying = false
 
-canvas.addEventListener('click', () => {
-  if (!isPlaying) {
-    isPlaying = true
-    loop(0)
-  } else {
+const pause = () => (isPlaying = !isPlaying)
 
-  }
-})
+canvas.addEventListener("click", pause)
 
-function loop() { 
-  if (isPlaying) {
-    drawBackground()
-    drawImage(baseImage, baseX, baseY, BASE_WIDTH, BASE_HEIGHT)
-    drawImage(manholl, manhollX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
-    drawImage(dresik, dresikX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
-    drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
-    animateBackground()
-    animatemanholl()
-    animateDresik()
-    animateDresik2()
-  }
-  requestAnimationFrame(loop)
+function loop(time) {
+    lastTime = time
+    if (isPlaying) {
+      drawBackground()
+      drawImage(baseImage, baseX, baseY, BASE_WIDTH, BASE_HEIGHT)
+      drawImage(manholl, manhollX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+      drawImage(dresik, dresikX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      animateBackground()
+      animatemanholl()
+      animateDresik()
+      animateDresik2()
+    }
+    requestAnimationFrame(loop)
 }
+loop(lastTime)
 
 function drawBackground() {
   drawImage(backgroundImage, backgroundX, 0, WIDTH, HEIGHT)
@@ -110,7 +106,7 @@ function drawBackground() {
 }
 
 function randomNumber(min, max) {
-  return Math.round((Math.random() * (max-min) + min))
+    return Math.round(Math.random() * (max - min) + min)
 }
 
 
@@ -124,24 +120,24 @@ function animateBackground () {
 }
 
 function animatemanholl() {
-  manhollX -= 2
+    manhollX -= 2
 
     if (manhollX < -100) {
-      manhollX = 1000
+        manhollX = 1000
     }
 }
 
 function animateDresik() {
-  dresikX -= 2
+    dresikX -= 2
 
     if (dresikX < -100) {
-      dresikX = 1000
+        dresikX = 1000
     }
 }
 function animateDresik2() {
-  dresikX2 -= 2
+    dresikX2 -= 2
 
     if (dresikX2 < -100) {
-      dresikX2 = 1000
+        dresikX2 = 1000
     }
 }
