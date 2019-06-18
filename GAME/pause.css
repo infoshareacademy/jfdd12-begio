@@ -3,18 +3,69 @@
  }
 
  #instruction {
-     position: absolute;
-     background: rgba(255, 255, 255, 0.61);
-     width: 987px;
-     height: 673px;
-     text-align: center;
-     font-size: 2em;
-     display: flex;
-     flex-flow: column;
-     justify-content: center;
- }
+    display: grid;
+    align-content: end;
+    justify-items: center;
+    position: absolute;
+    background: #FFF;
+    border: #77aaaa 5px groove;
+    width: 550px;
+    height: 400px;
+    padding: 1em;
+    top: 16%;
+    left: 16%;
+    text-align: center;
+    color: rgb(31, 29, 29);
+    font-size: 17px;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif; 
+    border-radius: 4px;
+  }
+  
+  .headerRules{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+  }
 
- .text {
-     padding-bottom: 1em;
+  .startButton {
+  width: 100px;
+  padding: 12px;
+  border: 1px solid #77aaaa;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  background: #aadddd;
+  box-shadow: 2px 2px 4px 2px rgba(40, 40, 40, 0.6);
+}
+  
+  .exitButton {
+    float: right;
+    width: 40px;
+    padding: 12px;
+    border: 1px solid #77aaaa;
+    font-family: arial;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    background: #aadddd;
+    box-shadow: 2px 2px 4px 2px rgba(40, 40, 40, 0.6);
+    justify-self: end;
+  }
+  
+  .startButton:hover {
+    background: #77aaaa;
+  }
+  
+  .exitButton:hover {
+    background: #77aaaa;
+  }
+  
 
- }
+  
