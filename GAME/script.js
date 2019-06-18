@@ -12,7 +12,7 @@ document.addEventListener("keydown", userPressedSpace)
 
 const heroImage = new Image()
 
-heroImage.src = "running_man.png"
+heroImage.src = "assets/running_man.png"
 
 let hero = {
     x: 20,
