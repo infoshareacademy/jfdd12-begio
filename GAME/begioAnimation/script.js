@@ -10,19 +10,9 @@ const ctx = canvas.getContext("2d")
 
 document.addEventListener("keydown", userPressedSpace)
 
-const image = new Image()
+const heroImage = new Image()
 
-image.src = "running_man.png"
-
-// let spacePreesed = false
-
-let FRAME_X = 0
-let FRAME_Y = 0
-let lastTime = 0
-let delta = 0
-let gravity = 0
-
-let frameCount = 0
+heroImage.src = "running_man.png"
 
 let hero = {
     x: 20,
@@ -31,7 +21,13 @@ let hero = {
     width: 144
 }
 
-jumpSpeed = 10
+let FRAME_X = 0
+let FRAME_Y = 0
+let lastTime = 0
+let delta = 0
+let frameCount = 0
+
+let jumpSpeed = 10
 let maxJumpHeight = 200
 let currentJumpHeight = 0
 let isHeroJumping = false
@@ -51,18 +47,12 @@ function heroJump() {
     }
 }
 
-function inGameGravity() {
-    hero.y = hero.y + gravity
-}
-
 let isOnGround = hero.y >= canvas.height - hero.height
 
 function userPressedSpace(event) {
     spacePreesed = event.code === "Space"
     if (spacePreesed && isOnGround) {
         isHeroJumping = true
-        console.log(hero.y)
-        console.log(isOnGround)
     }
 }
 
@@ -74,7 +64,7 @@ function animateHero() {
 
     ctx.clearRect(0, 0, 600, 600)
     ctx.drawImage(
-        image,
+        heroImage,
         FRAME_X * FRAME_WIDTH,
         FRAME_Y * FRAME_HEIGHT,
         FRAME_WIDTH,
@@ -109,7 +99,7 @@ function heroMovement() {
     }
 }
 
-image.onload = function() {
+heroImage.onload = function() {
     loop(0)
 }
 
@@ -117,23 +107,6 @@ function loop(time) {
     frameCount += 1
     delta = time - lastTime
     lastTime = time
-    // inGameGravity()
     animateHero()
-    if (isOnGround) {
-        gravity = 0
-    } else {
-        gravity = 10
-    }
     requestAnimationFrame(loop)
 }
-
-// let lTime = 0
-
-// function f(time) {
-//     console.log(lTime - time)
-//     lTime = time
-//     console.log(time)
-//     requestAnimationFrame(f)
-// }
-
-// f(0)
