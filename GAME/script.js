@@ -72,7 +72,7 @@ let dresik2 = drawImage(
 function drawImage(imageUrl, x, y, w, h, onload = () => {}) {
     const image = new Image()
     image.src = `assets/${imageUrl}`
-    image.onload = function() {
+    image.onload = function () {
         ctx.drawImage(image, x, y, w, h)
         onload()
     }
@@ -82,10 +82,47 @@ function drawImage(imageUrl, x, y, w, h, onload = () => {}) {
 let lastTime = 0
 //rozpoczęcie gry
 let isPlaying = false
+let isRankingOpen = false
 
-const pause = () => (isPlaying = !isPlaying)
+const pause = () => (isPlaying = false)
+const play = () => (isPlaying = true)
+const togglePause = () => {
+    isPlaying = !isPlaying
+    closeRanking()
 
-canvas.addEventListener("click", pause)
+}
+const openRanking = () => {
+    if (!isRankingOpen) {
+        isRankingOpen = true
+        ranking.style.display = "block";
+    }
+}
+const closeRanking = () => {
+    if (isRankingOpen) {
+        ranking.style.display = 'none'
+        isRankingOpen = false
+    }
+}
+const toggleRanking = () => {
+    if (isRankingOpen) {
+        closeRanking()
+        play()
+    } else {
+        openRanking()
+        pause()
+    }
+}
+
+
+document.getElementById("pause_button")
+pause_button.addEventListener("click", togglePause)
+
+document.getElementById("restart_button")
+restart_button.addEventListener("click", loop)
+
+const ranking = document.getElementById("ranking")
+score_button.addEventListener('click', toggleRanking)
+
 
 function loop(time) {
     lastTime = time
@@ -141,6 +178,7 @@ function animateDresik() {
         dresikX = 1000
     }
 }
+
 function animateDresik2() {
     dresikX2 -= 2
 

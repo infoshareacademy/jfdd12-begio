@@ -24,3 +24,18 @@
 
 
 }
+
+#ranking {
+    display: none;
+    padding-left: 200px;
+    margin-top: 0.1em;
+    position: absolute;
+    width: 987px;
+    height: 670px;
+    background: rgba(255, 255, 255, 0.479);
+    font-size: 80px;
+}
+
+#ranking>ul>li {
+    list-style: none;
+}
