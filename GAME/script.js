@@ -17,8 +17,12 @@ let dresikX = 300
 let dresikX2 = 800
 let dresikY = HEIGHT - BASE_HEIGHT - 120
 let backgroundImage
+let secondBackgroundImage 
 let baseImage
 let messageImage
+let manholl
+let dresik 
+let dresik2 
 
 
 const canvas = document.createElement('canvas')
@@ -29,26 +33,48 @@ body.append(canvas)
 const ctx = canvas.getContext('2d')
 
 
-backgroundImage = drawImage("background-day.png", 0, 0, WIDTH, HEIGHT, () => {
-    baseImage = drawImage("base.png", 0, (HEIGHT - BASE_HEIGHT), BASE_WIDTH, BASE_HEIGHT, () => {
-        messageImage = drawImage("message.png", (WIDTH - MESSAGE_WIDTH) / 2, (HEIGHT - MESSAGE_HEIGHT) / 2, MESSAGE_WIDTH, MESSAGE_HEIGHT)
-    })
-  })
 
-let secondBackgroundImage = drawImage("background-day.png", 0, 0, WIDTH, HEIGHT)
-let manholl = drawImage("manholl.png", WIDTH / 2, (HEIGHT - BASE_HEIGHT) / 2, MANHOLL_WIDTH, MANHOLL_HEIGHT)
-let dresik = drawImage("dres2.png", WIDTH / 2, (HEIGHT - BASE_HEIGHT) / 2, DRESIK_WIDTH, DRESIK_HEIGHT)
-let dresik2 = drawImage("dres3.png", WIDTH / 2, (HEIGHT - BASE_HEIGHT) / 2, DRESIK_WIDTH, DRESIK_HEIGHT)
+function loadAllImages() {
+  Promise.all([
+    loadImage("background-day.png"),
+    loadImage("background-day.png"),
+    loadImage("base.png"),
+    loadImage("message.png"),
+    loadImage("manholl.png"),
+    loadImage("dres2.png"),
+    loadImage("dres3.png"),
+  ]).then(values => {
+    const [
+      background,
+      secondBackground, 
+      base,
+      message,
+      manhollLoad,
+      dresikLoad,
+      dresik2Load      
+    ] = values;
+    backgroundImage = background;
+    secondBackgroundImage = secondBackground;
+    baseImage = base;
+    messageImage = message;
+    manholl = manhollLoad;
+    dresik = dresikLoad;
+    dresik2 = dresik2Load;
+  });
+}
 
 
-function drawImage(imageUrl, x, y, w, h, onload = () => {}) {
+loadAllImages()
+
+
+function loadImage(imageUrl) {
   const image = new Image()
   image.src = `assets/${imageUrl}`
-  image.onload = function () {
-    ctx.drawImage(image, x, y, w, h)
-    onload()
-  }
   return image
+}
+
+function drawImage(image, x, y, w, h) {
+  ctx.drawImage(image, x, y, w, h)
 }
 
 //rozpoczęcie gry
@@ -63,14 +89,13 @@ canvas.addEventListener('click', () => {
   }
 })
 
-
 function loop() { 
   if (isPlaying) {
     drawBackground()
-    drawSingleObject(baseImage, baseX, baseY)
-    drawSingleObject(manholl, manhollX, baseY)
-    drawSingleObject(dresik, dresikX, dresikY)
-    drawSingleObject(dresik2, dresikX2, dresikY)
+    drawImage(baseImage, baseX, baseY, BASE_WIDTH, BASE_HEIGHT)
+    drawImage(manholl, manhollX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+    drawImage(dresik, dresikX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+    drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
     animateBackground()
     animatemanholl()
     animateDresik()
@@ -80,12 +105,8 @@ function loop() {
 }
 
 function drawBackground() {
-  ctx.drawImage(backgroundImage, backgroundX, 0)
-  ctx.drawImage(secondBackgroundImage, backgroundX + WIDTH, 0)
-}
-
-function drawSingleObject(image, x, y){
-  ctx.drawImage(image, x, y)
+  drawImage(backgroundImage, backgroundX, 0, WIDTH, HEIGHT)
+  drawImage(secondBackgroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT)
 }
 
 function randomNumber(min, max) {
@@ -94,10 +115,10 @@ function randomNumber(min, max) {
 
 
 function animateBackground () {
+  backgroundX -= 1
+
   if (backgroundX < -WIDTH) {
     backgroundX = 0
-    backgroundX -= 1
-  } else {
     backgroundX -= 1
   }
 }
