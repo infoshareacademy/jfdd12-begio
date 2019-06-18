@@ -25,14 +25,14 @@ let gravity = 0
 let frameCount = 0
 
 let hero = {
-    x: 0,
+    x: 20,
     y: canvas.height - 148,
     height: 148,
     width: 144
 }
 
 jumpSpeed = 10
-let maxJumpHeight = 100
+let maxJumpHeight = 200
 let currentJumpHeight = 0
 let isHeroJumping = false
 
