@@ -92,8 +92,8 @@ document.addEventListener("keydown", userPressedSpace)
 
 let hero = {
     x: 20,
-    y: canvas.height - 148,
-    height: 148,
+    y: canvas.height - 200,
+    height: 200,
     width: 144
 }
 
@@ -102,8 +102,8 @@ let FRAME_Y = 0
 let delta = 0
 let frameCount = 0
 
-let jumpSpeed = 10
-let maxJumpHeight = 200
+let jumpSpeed = 5
+let maxJumpHeight = 300
 let currentJumpHeight = 0
 let isHeroJumping = false
 
@@ -118,7 +118,7 @@ function heroJump() {
     if (currentJumpHeight > 2 * maxJumpHeight) {
         isHeroJumping = false
         currentJumpHeight = 0
-        hero.y = canvas.height - 148
+        hero.y = canvas.height - 200
     }
 }
 
@@ -213,7 +213,7 @@ function animateBackground() {
 }
 
 function animatemanholl() {
-    manhollX -= 2
+    manhollX -= 4
 
     if (manhollX < -100) {
         manhollX = 1000
@@ -221,14 +221,14 @@ function animatemanholl() {
 }
 
 function animateDresik() {
-    dresikX -= 2
+    dresikX -= 4
 
     if (dresikX < -100) {
         dresikX = 1000
     }
 }
 function animateDresik2() {
-    dresikX2 -= 2
+    dresikX2 -= 4
 
     if (dresikX2 < -100) {
         dresikX2 = 1000
