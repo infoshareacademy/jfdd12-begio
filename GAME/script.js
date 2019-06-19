@@ -2,28 +2,31 @@ const WIDTH = 987
 const HEIGHT = 673
 const BASE_HEIGHT = 88
 const BASE_WIDTH = 987
-const MESSAGE_WIDTH = 300
-const MESSAGE_HEIGHT = 267
-const MANHOLL_WIDTH = 100
-const MANHOLL_HEIGHT = 44
-const DRESIK_WIDTH = 100
-const DRESIK_HEIGHT = 144
+const MANHOLL_WIDTH = 70
+const MANHOLL_HEIGHT = 31
+const DRESIK_WIDTH = 56
+const DRESIK_HEIGHT = 90
+const SEAGULL_WIDTH = 40
+const SEAGULL_HEIGHT = 24
 
 let backgroundX = 0
 let baseX = 0
+let seagullX = WIDTH / 2
+let seagullY = HEIGHT / 2
 let baseY = HEIGHT - BASE_HEIGHT
-let manhollX = 400
-let dresikX = 300
-let dresikX2 = 800
-let dresikY = HEIGHT - BASE_HEIGHT - 120
+let manhollX = 1000
+let dresikX = 1000
+let dresikX2 = 1000
+let dresikY = HEIGHT - BASE_HEIGHT - 50
 let backgroundImage
 let secondBackgroundImage
 let baseImage
-let messageImage
 let manholl
 let dresik
 let dresik2
 let heroImage
+let obstacleNumber
+let seagull
 
 const canvas = document.createElement("canvas")
 canvas.setAttribute("height", `${HEIGHT}px`)
@@ -37,17 +40,16 @@ function loadAllImages() {
         loadImage("background-day.png"),
         loadImage("background-day.png"),
         loadImage("base.png"),
-        loadImage("message.png"),
         loadImage("manholl.png"),
         loadImage("dres2.png"),
         loadImage("dres3.png"),
-        loadImage("running_man.png")
+        loadImage("running_man.png"),
+        loadImage("mewa.png")
     ]).then(values => {
         const [
             background,
             secondBackground,
             base,
-            message,
             manhollLoad,
             dresikLoad,
             dresik2Load,
@@ -56,7 +58,6 @@ function loadAllImages() {
         backgroundImage = background
         secondBackgroundImage = secondBackground
         baseImage = base
-        messageImage = message
         manholl = manhollLoad
         dresik = dresikLoad
         dresik2 = dresik2Load
@@ -204,37 +205,80 @@ function heroMovement() {
     }
 }
 
+getRandomNumberForSingleObscale()
+
 function loop(time) {
     frameCount++
     lastTime = time
     if (isPlaying) {
         drawBackground()
         drawImage(baseImage, baseX, baseY, BASE_WIDTH, BASE_HEIGHT)
-        drawImage(manholl, manhollX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
-        drawImage(dresik, dresikX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
-        drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+        drawSingleObstacle(obstacleNumber)
         animateHero()
         animateBackground()
-        animatemanholl()
-        animateDresik()
-        animateDresik2()
+        animateSingleObscale(obstacleNumber)
     }
     requestAnimationFrame(loop)
 }
 
 loop(lastTime)
 
+function randomNumber(min, max) {
+  return Math.round(Math.random() * (max - min) + min)
+}
+
+function getRandomNumberForSingleObscale(){
+   obstacleNumber = randomNumber(1, 4)
+}
+
 function drawBackground() {
     drawImage(backgroundImage, backgroundX, 0, WIDTH, HEIGHT)
     drawImage(secondBackgroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT)
 }
 
-function randomNumber(min, max) {
-    return Math.round(Math.random() * (max - min) + min)
+function drawSingleObstacle(obstacleNumber){
+  switch (obstacleNumber) {
+    case 1:
+      drawImage(manholl, manhollX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+      break;
+    case 2:
+      drawImage(dresik, dresikX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      break;
+    case 3:
+      drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      break;
+    case 4:
+      drawImage(manholl, manhollX - 70, baseY + 10, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+      drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      break;
+
+    default:
+      break;
+  }
+}
+
+function animateSingleObscale(ObstacleNumber){
+  switch (ObstacleNumber) {
+    case 1:
+      animateManholl()
+      break;
+    case 2:
+      animateDresik()
+    break;
+    case 3:
+      animateDresik2()
+      break;
+    case 4:
+      animateDresik2()
+      animateManholl()
+      break;
+    default:
+      break;
+  }
 }
 
 function animateBackground() {
-    backgroundX -= 1
+    backgroundX -= 2
 
     if (backgroundX < -WIDTH) {
         backgroundX = 0
@@ -242,26 +286,29 @@ function animateBackground() {
     }
 }
 
-function animatemanholl() {
-    manhollX -= 4
+function animateManholl() {
+    manhollX -=  5
 
     if (manhollX < -100) {
         manhollX = 1000
+        getRandomNumberForSingleObscale()
     }
 }
 
 function animateDresik() {
-    dresikX -= 4
+    dresikX -= 5
 
     if (dresikX < -100) {
         dresikX = 1000
+        getRandomNumberForSingleObscale()
     }
 }
 
 function animateDresik2() {
-    dresikX2 -= 4
+    dresikX2 -= 5
 
     if (dresikX2 < -100) {
         dresikX2 = 1000
+        getRandomNumberForSingleObscale()
     }
 }
