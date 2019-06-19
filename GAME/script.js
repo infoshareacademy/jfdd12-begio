@@ -79,16 +79,46 @@ function drawImage(image, x, y, w, h) {
 let lastTime = 0
 
 let isPlaying = false
+let isRankingOpen = false
 
-const pause = () => (isPlaying = !isPlaying)
+const pause = () => (isPlaying = false)
+const play = () => (isPlaying = true)
+const togglePause = () => {
+    isPlaying = !isPlaying
+    closeRanking()
+}
+const openRanking = () => {
+    if (!isRankingOpen) {
+        isRankingOpen = true
+        ranking.style.display = "block"
+    }
+}
+const closeRanking = () => {
+    if (isRankingOpen) {
+        ranking.style.display = "none"
+        isRankingOpen = false
+    }
+}
+const toggleRanking = () => {
+    if (isRankingOpen) {
+        closeRanking()
+        play()
+    } else {
+        openRanking()
+        pause()
+    }
+}
 
-canvas.addEventListener("click", pause)
+document.getElementById("pause_button")
+pause_button.addEventListener("click", togglePause)
+
+document.getElementById("restart_button")
+restart_button.addEventListener("click", loop)
+
+const ranking = document.getElementById("ranking")
+score_button.addEventListener("click", toggleRanking)
 
 document.addEventListener("keydown", userPressedSpace)
-
-// const heroImage = new Image()
-
-// heroImage.src = "assets/running_man.png"
 
 let hero = {
     x: 20,
@@ -227,6 +257,7 @@ function animateDresik() {
         dresikX = 1000
     }
 }
+
 function animateDresik2() {
     dresikX2 -= 4
 
