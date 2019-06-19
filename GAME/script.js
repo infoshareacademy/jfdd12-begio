@@ -2,8 +2,6 @@ const WIDTH = 987
 const HEIGHT = 673
 const BASE_HEIGHT = 88
 const BASE_WIDTH = 987
-const MESSAGE_WIDTH = 300
-const MESSAGE_HEIGHT = 267
 const MANHOLL_WIDTH = 100
 const MANHOLL_HEIGHT = 44
 const DRESIK_WIDTH = 100
@@ -19,7 +17,6 @@ let dresikY = HEIGHT - BASE_HEIGHT - 120
 let backgroundImage
 let secondBackgroundImage
 let baseImage
-let messageImage
 let manholl
 let dresik
 let dresik2
@@ -37,7 +34,6 @@ function loadAllImages() {
         loadImage("background-day.png"),
         loadImage("background-day.png"),
         loadImage("base.png"),
-        loadImage("message.png"),
         loadImage("manholl.png"),
         loadImage("dres2.png"),
         loadImage("dres3.png"),
@@ -47,7 +43,6 @@ function loadAllImages() {
             background,
             secondBackground,
             base,
-            message,
             manhollLoad,
             dresikLoad,
             dresik2Load,
@@ -56,7 +51,6 @@ function loadAllImages() {
         backgroundImage = background
         secondBackgroundImage = secondBackground
         baseImage = base
-        messageImage = message
         manholl = manhollLoad
         dresik = dresikLoad
         dresik2 = dresik2Load
@@ -122,8 +116,8 @@ document.addEventListener("keydown", userPressedSpace)
 
 let hero = {
     x: 20,
-    y: canvas.height - 200,
-    height: 200,
+    y: HEIGHT - 200,
+    height: 148,
     width: 144
 }
 
@@ -148,11 +142,11 @@ function heroJump() {
     if (currentJumpHeight > 2 * maxJumpHeight) {
         isHeroJumping = false
         currentJumpHeight = 0
-        hero.y = canvas.height - 200
+        hero.y = HEIGHT - 200
     }
 }
 
-let isOnGround = hero.y >= canvas.height - hero.height
+let isOnGround = hero.y >= HEIGHT - 200
 
 function userPressedSpace(event) {
     spacePreesed = event.code === "Space"
@@ -167,7 +161,6 @@ function animateHero() {
     const FRAME_WIDTH = IMAGE_WIDTH / 6
     const FRAME_HEIGHT = IMAGE_HEIGHT / 5
 
-    // ctx.clearRect(0, 0, 600, 600)
     ctx.drawImage(
         heroImage,
         FRAME_X * FRAME_WIDTH,
