@@ -6,18 +6,16 @@ const MANHOLL_WIDTH = 70
 const MANHOLL_HEIGHT = 31
 const DRESIK_WIDTH = 56
 const DRESIK_HEIGHT = 90
-const SEAGULL_WIDTH = 40
-const SEAGULL_HEIGHT = 24
+const SEAGULL_WIDTH = 70
+const SEAGULL_HEIGHT = 40
 
 let backgroundX = 0
 let baseX = 0
 let seagullX = WIDTH / 2
 let seagullY = HEIGHT / 2
 let baseY = HEIGHT - BASE_HEIGHT
-let manhollX = 1000
-let dresikX = 1000
-let dresikX2 = 1000
 let dresikY = HEIGHT - BASE_HEIGHT - 50
+let obscaleX = 1000
 let backgroundImage
 let secondBackgroundImage
 let baseImage
@@ -53,7 +51,8 @@ function loadAllImages() {
             manhollLoad,
             dresikLoad,
             dresik2Load,
-            hero
+            hero,
+            seagullLoad
         ] = values
         backgroundImage = background
         secondBackgroundImage = secondBackground
@@ -62,6 +61,7 @@ function loadAllImages() {
         dresik = dresikLoad
         dresik2 = dresik2Load
         heroImage = hero
+        seagull = seagullLoad
     })
 }
 
@@ -168,7 +168,6 @@ function animateHero() {
     const FRAME_WIDTH = IMAGE_WIDTH / 6
     const FRAME_HEIGHT = IMAGE_HEIGHT / 5
 
-    // ctx.clearRect(0, 0, 600, 600)
     ctx.drawImage(
         heroImage,
         FRAME_X * FRAME_WIDTH,
@@ -213,10 +212,9 @@ function loop(time) {
     if (isPlaying) {
         drawBackground()
         drawImage(baseImage, baseX, baseY, BASE_WIDTH, BASE_HEIGHT)
-        drawSingleObstacle(obstacleNumber)
         animateHero()
         animateBackground()
-        animateSingleObscale(obstacleNumber)
+        drawSingleObstacle(obstacleNumber)
     }
     requestAnimationFrame(loop)
 }
@@ -228,7 +226,7 @@ function randomNumber(min, max) {
 }
 
 function getRandomNumberForSingleObscale(){
-   obstacleNumber = randomNumber(1, 4)
+   obstacleNumber = randomNumber(1, 5)
 }
 
 function drawBackground() {
@@ -239,46 +237,34 @@ function drawBackground() {
 function drawSingleObstacle(obstacleNumber){
   switch (obstacleNumber) {
     case 1:
-      drawImage(manholl, manhollX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+      drawImage(manholl, obscaleX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+      animateObscale()
       break;
     case 2:
-      drawImage(dresik, dresikX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      drawImage(dresik, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      animateObscale()
       break;
     case 3:
-      drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      animateObscale()
       break;
     case 4:
-      drawImage(manholl, manhollX - 70, baseY + 10, MANHOLL_WIDTH, MANHOLL_HEIGHT)
-      drawImage(dresik2, dresikX2, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      drawImage(manholl, obscaleX - 70, baseY + 10, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+      drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
+      animateObscale()
       break;
+    case 5:
+      drawImage(seagull, obscaleX, 100, SEAGULL_WIDTH, SEAGULL_HEIGHT)
+      animateObscale()
+    drawImage
 
-    default:
-      break;
-  }
-}
-
-function animateSingleObscale(ObstacleNumber){
-  switch (ObstacleNumber) {
-    case 1:
-      animateManholl()
-      break;
-    case 2:
-      animateDresik()
-    break;
-    case 3:
-      animateDresik2()
-      break;
-    case 4:
-      animateDresik2()
-      animateManholl()
-      break;
     default:
       break;
   }
 }
 
 function animateBackground() {
-    backgroundX -= 2
+    backgroundX -= 3
 
     if (backgroundX < -WIDTH) {
         backgroundX = 0
@@ -286,29 +272,12 @@ function animateBackground() {
     }
 }
 
-function animateManholl() {
-    manhollX -=  5
+const animationSpeed = 7
 
-    if (manhollX < -100) {
-        manhollX = 1000
-        getRandomNumberForSingleObscale()
-    }
-}
-
-function animateDresik() {
-    dresikX -= 5
-
-    if (dresikX < -100) {
-        dresikX = 1000
-        getRandomNumberForSingleObscale()
-    }
-}
-
-function animateDresik2() {
-    dresikX2 -= 5
-
-    if (dresikX2 < -100) {
-        dresikX2 = 1000
+function animateObscale(){
+    obscaleX -= animationSpeed
+    if (obscaleX < -100) {
+        obscaleX = 1000
         getRandomNumberForSingleObscale()
     }
 }
