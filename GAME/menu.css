@@ -39,3 +39,24 @@
 #ranking>ul>li {
     list-style: none;
 }
+
+#seconds-counter {
+    padding-top: 0.5em;
+    font-size: 1.5em
+}
+
+#lost {
+    display: none;
+    background: rgb(0, 0, 0);
+    margin-top: 0.1em;
+    position: absolute;
+    width: 987px;
+    height: 670px;
+    font-size: 80px;
+    text-align: center;
+}
+
+#lost>p {
+    color: white;
+    text-align: center;
+}
