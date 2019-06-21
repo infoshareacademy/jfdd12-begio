@@ -141,7 +141,7 @@ const openInstruction = () => {
     pause()
 }
 
-const startGame = () => {
+const startGameButton = () => {
 
     closeInstruction()
     setTimeout(() => {
@@ -162,7 +162,7 @@ closeInstructionButton.addEventListener("click", closeInstruction)
 const instrucionWindow = document.getElementById('instruction')
 
 const startButton = document.getElementById('button_start')
-button_start.addEventListener('click', startGame)
+button_start.addEventListener('click', startGameButton)
 document.getElementById("restart_button")
 restart_button.addEventListener("click", restartGame)
 
@@ -288,34 +288,78 @@ function drawBackground() {
 function drawSingleObstacle(obstacleNumber) {
     switch (obstacleNumber) {
         case 1:
+            const hollColl = {
+                x: obscaleX,
+                y: baseY,
+                width: MANHOLL_WIDTH,
+                height: MANHOLL_HEIGHT
+            }
             drawImage(manholl, obscaleX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
             animateObscale()
-            break
+            if (collisionDresik(hollColl)) {
+                pause()
+                console.log("dziura")
+            }
+            break;
         case 2:
+            const dresikColl = {
+                x: obscaleX,
+                y: baseY,
+                width: DRESIK_WIDTH,
+                height: DRESIK_HEIGHT
+            }
             drawImage(dresik, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
-            break
+            if (collisionDresik(dresikColl)) {
+                pause()
+                console.log("dresik1")
+            }
+            break;
         case 3:
+            const dresik2Coll = {
+                x: obscaleX,
+                y: baseY,
+                width: DRESIK_WIDTH,
+                height: DRESIK_HEIGHT
+            }
             drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
-            break
+            if (collisionDresik(dresik2Coll)) {
+                pause()
+                console.log("dresik2")
+            }
+            break;
         case 4:
-            drawImage(
-                manholl,
-                obscaleX - 70,
-                baseY + 10,
-                MANHOLL_WIDTH,
-                MANHOLL_HEIGHT
-            )
+            const bothColl = {
+                x: obscaleX,
+                y: baseY,
+                width: DRESIK_WIDTH + MANHOLL_WIDTH,
+                height: DRESIK_HEIGHT
+            }
+            drawImage(manholl, obscaleX - 70, baseY + 10, MANHOLL_WIDTH, MANHOLL_HEIGHT)
             drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
-            break
+            if (collisionDresik(bothColl)) {
+                pause()
+                console.log("oboje")
+            }
+            break;
         case 5:
+            const seagullColl = {
+                x: obscaleX,
+                y: baseY,
+                width: SEAGULL_WIDTH,
+                height: SEAGULL_HEIGHT
+            }
             drawImage(seagull, obscaleX, 100, SEAGULL_WIDTH, SEAGULL_HEIGHT)
             animateObscale()
-            break
+            if (collisionSeagull(seagullColl)) {
+                pause()
+                console.log("mewka jeb")
+            }
+            break;
         default:
-            break
+            break;
     }
 }
 
@@ -336,4 +380,46 @@ function animateObscale() {
         obscaleX = 1100
         getRandomNumberForSingleObscale()
     }
+}
+
+
+function collisionDresik(dresikColl) {
+    return hero.x < dresikColl.x + dresikColl.width &&
+        hero.x + hero.width > dresikColl.x &&
+        hero.y < dresikColl.y + dresikColl.height &&
+        hero.y + hero.height > dresikColl.y
+
+}
+
+function collisionDresik2(dresik2Coll) {
+    return hero.x < dresikColl.x + dresik2Coll.width &&
+        hero.x + hero.width > dresik2Coll.x &&
+        hero.y < dresik2Coll.y + dresik2Coll.height &&
+        hero.y + hero.height > dresik2Coll.y
+
+}
+
+function collisionBoth(bothColl) {
+    return hero.x < bothColl.x + bothColl.width &&
+        hero.x + hero.width > bothColl.x &&
+        hero.y < bothColl.y + dresik2Coll.height &&
+        hero.y + hero.height > bothColl.y
+
+}
+
+function collisionManHoll(hollColl) {
+    return hero.x < hollColl.x + hollColl.width &&
+        hero.x + hero.width > hollColl.x &&
+        hero.y < hollColl.y + hollColl.height &&
+        hero.y + hero.height > hollColl.y
+}
+
+
+collisionSeagull
+
+function collisionSeagull(seagullColl) {
+    return hero.x < seagullColl.x + seagullColl.width &&
+        hero.x + hero.width > seagullColl.x &&
+        hero.y === seagullColl.y + seagullColl.height &&
+        hero.y + hero.height > seagullColl.y
 }
