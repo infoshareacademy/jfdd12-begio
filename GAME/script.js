@@ -140,6 +140,7 @@ restart_button.addEventListener("click", () => {
     FRAME_Y = 0
     delta = 0
     obscaleX = 1100
+    getRandomNumberForSingleObscale()
     startGame()
 })
 
