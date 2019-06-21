@@ -256,8 +256,7 @@ function drawSingleObstacle(obstacleNumber){
     case 5:
       drawImage(seagull, obscaleX, 100, SEAGULL_WIDTH, SEAGULL_HEIGHT)
       animateObscale()
-    drawImage
-
+      break;
     default:
       break;
   }
