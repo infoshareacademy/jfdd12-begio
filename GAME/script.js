@@ -83,6 +83,10 @@ let isPlaying = false
 let isRankingOpen = false
 
 const pause = () => (isPlaying = false)
+
+
+
+
 const play = () => (isPlaying = true)
 const togglePause = () => {
     isPlaying = !isPlaying
@@ -90,6 +94,7 @@ const togglePause = () => {
 }
 const openRanking = () => {
     if (!isRankingOpen) {
+        closeInstruction()
         isRankingOpen = true
         ranking.style.display = "block"
     }
@@ -98,6 +103,7 @@ const closeRanking = () => {
     if (isRankingOpen) {
         ranking.style.display = "none"
         isRankingOpen = false
+
     }
 }
 const toggleRanking = () => {
@@ -109,10 +115,39 @@ const toggleRanking = () => {
         pause()
     }
 }
+const closeInstruction = () => {
+    instruction.style.display = 'none'
+    play()
+}
+const openInstruction = () => {
+    button_start.style.display = "none"
+    instruction.style.display = 'block'
+    closeRanking()
+    pause()
+}
+
+const startGame = () => {
+
+    closeInstruction()
+    setTimeout(() => {
+        play()
+    }, 3000);
+
+    pause();
+}
+
+document.getElementById("instruction_button")
+instruction_button.addEventListener('click', openInstruction)
 
 document.getElementById("pause_button")
 pause_button.addEventListener("click", togglePause)
 
+const closeInstructionButton = document.getElementById("close_instruction")
+closeInstructionButton.addEventListener("click", closeInstruction)
+const instrucionWindow = document.getElementById('instruction')
+
+const startButton = document.getElementById('button_start')
+button_start.addEventListener('click', startGame)
 document.getElementById("restart_button")
 restart_button.addEventListener("click", loop)
 
