@@ -15,7 +15,7 @@ let seagullX = WIDTH / 2
 let seagullY = HEIGHT / 2
 let baseY = HEIGHT - BASE_HEIGHT
 let dresikY = HEIGHT - BASE_HEIGHT - 50
-let obscaleX = 1000
+let obscaleX = 1100
 let backgroundImage
 let secondBackgroundImage
 let baseImage
@@ -123,8 +123,8 @@ document.addEventListener("keydown", userPressedSpace)
 
 let hero = {
     x: 20,
-    y: canvas.height - 200,
-    height: 200,
+    y: HEIGHT - 200,
+    height: 148,
     width: 144
 }
 
@@ -149,11 +149,11 @@ function heroJump() {
     if (currentJumpHeight > 2 * maxJumpHeight) {
         isHeroJumping = false
         currentJumpHeight = 0
-        hero.y = canvas.height - 200
+        hero.y = HEIGHT - 200
     }
 }
 
-let isOnGround = hero.y >= canvas.height - hero.height
+let isOnGround = hero.y >= HEIGHT - 200
 
 function userPressedSpace(event) {
     spacePreesed = event.code === "Space"
@@ -272,12 +272,12 @@ function animateBackground() {
     }
 }
 
-const animationSpeed = 7
+const animationSpeed = 4
 
 function animateObscale(){
     obscaleX -= animationSpeed
     if (obscaleX < -100) {
-        obscaleX = 1000
+        obscaleX = 1100
         getRandomNumberForSingleObscale()
     }
 }
