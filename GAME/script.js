@@ -25,7 +25,7 @@ let dresik2
 let heroImage
 let obstacleNumber
 let seagull
-let rAFId = 0
+let requestAnimationFrameId = 0
 let lastTime = 0
 let isPlaying = false
 let isRankingOpen = false
@@ -129,20 +129,7 @@ document.getElementById("pause_button")
 pause_button.addEventListener("click", togglePause)
 
 document.getElementById("restart_button")
-restart_button.addEventListener("click", () => {
-    console.log("qwerty", rAFId)
-    cancelAnimationFrame(rAFId)
-    frameCount = 0
-    isPlaying = true
-    lastTime = 0
-    backgroundX = 0
-    FRAME_X = 0
-    FRAME_Y = 0
-    delta = 0
-    obscaleX = 1100
-    getRandomNumberForSingleObscale()
-    startGame()
-})
+restart_button.addEventListener("click", restartGame)
 
 const ranking = document.getElementById("ranking")
 score_button.addEventListener("click", toggleRanking)
@@ -227,11 +214,25 @@ function loop(time) {
         animateBackground()
         drawSingleObstacle(obstacleNumber)
     }
-    rAFId = requestAnimationFrame(loop)
+    requestAnimationFrameId = requestAnimationFrame(loop)
 }
 
 function startGame() {
     loop(lastTime)
+}
+
+function restartGame() {
+    cancelAnimationFrame(requestAnimationFrameId)
+    frameCount = 0
+    isPlaying = true
+    lastTime = 0
+    backgroundX = 0
+    FRAME_X = 0
+    FRAME_Y = 0
+    delta = 0
+    obscaleX = 1100
+    getRandomNumberForSingleObscale()
+    startGame()
 }
 
 startGame()
