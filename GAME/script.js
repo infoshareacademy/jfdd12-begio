@@ -302,64 +302,56 @@ function drawBackground() {
     drawImage(secondBackgroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT)
 }
 
+
+const CollisionObject = function (x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height
+}
+
+
 function drawSingleObstacle(obstacleNumber) {
     switch (obstacleNumber) {
         case 1:
-            const hollColl = {
-                x: obscaleX,
-                y: baseY,
-                width: MANHOLL_WIDTH,
-                height: MANHOLL_HEIGHT
-            }
+            const hollColl = new CollisionObject(obscaleX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
+
             drawImage(manholl, obscaleX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
             animateObscale()
-            if (collisionManHoll(hollColl)) {
+            if (collision(hollColl)) {
                 lost.style.display = "block"
                 pause()
                 console.log("dziura")
             }
             break;
         case 2:
-            const dresikColl = {
-                x: obscaleX,
-                y: baseY,
-                width: DRESIK_WIDTH,
-                height: DRESIK_HEIGHT
-            }
+            const dresikColl = new CollisionObject(obscaleX, baseY, DRESIK_WIDTH, DRESIK_HEIGHT)
+
             drawImage(dresik, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
-            if (collisionDresik(dresikColl)) {
+            if (collision(dresikColl)) {
                 lost.style.display = "block"
                 pause()
                 console.log("dresik1")
             }
             break;
         case 3:
-            const dresik2Coll = {
-                x: obscaleX,
-                y: baseY,
-                width: DRESIK_WIDTH,
-                height: DRESIK_HEIGHT
-            }
+            const dresik2Coll = new CollisionObject(obscaleX, baseY, DRESIK_WIDTH, DRESIK_HEIGHT)
+
             drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
-            if (collisionDresik(dresik2Coll)) {
+            if (collision(dresik2Coll)) {
                 lost.style.display = "block"
                 pause()
                 console.log("dresik2")
             }
             break;
         case 4:
-            const bothColl = {
-                x: obscaleX,
-                y: baseY,
-                width: DRESIK_WIDTH + MANHOLL_WIDTH,
-                height: DRESIK_HEIGHT
-            }
+            const bothColl = new CollisionObject(obscaleX, baseY, DRESIK_WIDTH + MANHOLL_WIDTH, DRESIK_HEIGHT)
             drawImage(manholl, obscaleX - 70, baseY + 10, MANHOLL_WIDTH, MANHOLL_HEIGHT)
             drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
-            if (collisionDresik(bothColl)) {
+            if (collision(bothColl)) {
                 lost.style.display = "block"
                 pause()
                 console.log("oboje")
@@ -372,7 +364,7 @@ function drawSingleObstacle(obstacleNumber) {
                 width: SEAGULL_WIDTH,
                 height: SEAGULL_HEIGHT
             }
-            drawImage(seagull, obscaleX, 100, SEAGULL_WIDTH, SEAGULL_HEIGHT)
+            drawImage(seagull, obscaleX, 350, SEAGULL_WIDTH, SEAGULL_HEIGHT)
             animateObscale()
             if (collisionSeagull(seagullColl)) {
                 lost.style.display = "block"
@@ -408,44 +400,15 @@ function animateObscale() {
 
 
 
-
-function collisionDresik(dresikColl) {
-    return -hero.x < -dresikColl.x + dresikColl.width &&
-        hero.x + hero.width > dresikColl.x &&
-        hero.y < dresikColl.y + (-dresikColl.height) &&
-        hero.y + hero.height > dresikColl.y
-
+function collision(enemy) {
+    return -hero.x < -enemy.x + enemy.width &&
+        hero.x + hero.width > enemy.x &&
+        hero.y < enemy.y + (-enemy.height) &&
+        hero.y + hero.height > enemy.y
 }
-
-function collisionDresik2(dresik2Coll) {
-    return -hero.x < -dresik2Coll.x + dresik2Coll.width &&
-        hero.x + hero.width > dresik2Coll.x &&
-        hero.y < dresik2Coll.y + (-dresik2Coll.height) &&
-        hero.y + hero.height > dresik2Coll.y
-
-}
-
-function collisionBoth(bothColl) {
-    return -hero.x < -bothColl.x + bothColl.width &&
-        hero.x + hero.width > bothColl.x &&
-        hero.y < bothColl.y + dresik2Coll.height &&
-        hero.y + hero.height > bothColl.y
-
-}
-
-function collisionManHoll(hollColl) {
-    return -hero.x < -hollColl.x + hollColl.width &&
-        hero.x + hero.width > hollColl.x &&
-        hero.y < hollColl.y + hollColl.height &&
-        hero.y + hero.height > hollColl.y
-}
-
 
 
 
 function collisionSeagull(seagullColl) {
-    return hero.x < seagullColl.x + seagullColl.width &&
-        hero.x + hero.width > seagullColl.x &&
-        hero.y === seagullColl.y + seagullColl.height &&
-        hero.y + hero.height > seagullColl.y
+    //nie działa???
 }
