@@ -141,7 +141,7 @@ const openInstruction = () => {
     pause()
 }
 
-const startGame = () => {
+const startGameButton = () => {
 
     closeInstruction()
     setTimeout(() => {
@@ -162,7 +162,7 @@ closeInstructionButton.addEventListener("click", closeInstruction)
 const instrucionWindow = document.getElementById('instruction')
 
 const startButton = document.getElementById('button_start')
-button_start.addEventListener('click', startGame)
+button_start.addEventListener('click', startGameButton)
 document.getElementById("restart_button")
 restart_button.addEventListener("click", restartGame)
 
