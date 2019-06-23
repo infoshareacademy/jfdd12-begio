@@ -319,7 +319,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(manholl, obscaleX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
             animateObscale()
             if (collision(hollColl)) {
-                lost.style.display = "block"
+                // lost.style.display = "block"
                 pause()
                 console.log("dziura")
             }
@@ -330,7 +330,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(dresik, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
             if (collision(dresikColl)) {
-                lost.style.display = "block"
+                // lost.style.display = "block"
                 pause()
                 console.log("dresik1")
             }
@@ -341,7 +341,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
             if (collision(dresik2Coll)) {
-                lost.style.display = "block"
+                // lost.style.display = "block"
                 pause()
                 console.log("dresik2")
             }
@@ -352,7 +352,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
             animateObscale()
             if (collision(bothColl)) {
-                lost.style.display = "block"
+                // lost.style.display = "block"
                 pause()
                 console.log("oboje")
             }
@@ -367,7 +367,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(seagull, obscaleX, 350, SEAGULL_WIDTH, SEAGULL_HEIGHT)
             animateObscale()
             if (collisionSeagull(seagullColl)) {
-                lost.style.display = "block"
+                //lost.style.display = "block"
                 pause()
                 console.log("mewka jeb")
             }
@@ -401,10 +401,12 @@ function animateObscale() {
 
 
 function collision(enemy) {
-    return -hero.x < -enemy.x + enemy.width &&
-        hero.x + hero.width > enemy.x &&
-        hero.y < enemy.y + (-enemy.height) &&
+
+    return hero.x < (enemy.x + enemy.width) - 25 &&
+        (hero.x + hero.width) - 65 > enemy.x &&
+        hero.y < enemy.y + enemy.height &&
         hero.y + hero.height > enemy.y
+
 }
 
 
