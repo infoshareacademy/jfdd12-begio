@@ -285,17 +285,29 @@ function loop(time) {
 function startGame() {
     loop(lastTime)
 }
+function restartBackgroundPosition(){
+    let backgroundObiectsArray = [backgroundObj, secondBackgroundObj, baseObj]
+    backgroundObiectsArray.forEach(object =>
+        object.x = 0)
+}
+
+function restartObsraclePosition(){
+    let obstacleObjectArray = [manhollObj, dresikObj, seagullObj]
+    obstacleObjectArray.forEach(object =>
+        object.x = 1100)
+}
+
 
 function restartGame() {
     cancelAnimationFrame(requestAnimationFrameId)
     frameCount = 0
     isPlaying = true
     lastTime = 0
-    backgroundX = 0
     FRAME_X = 0
     FRAME_Y = 0
     delta = 0
-     obstacleX = 1100
+    restartBackgroundPosition()
+    restartObsraclePosition()
     getRandomNumberForSingleObstacle()
     startGame()
 }
