@@ -291,7 +291,7 @@ function restartBackgroundPosition(){
         object.x = 0)
 }
 
-function restartObsraclePosition(){
+function restartObstaclePosition(){
     let obstacleObjectArray = [manhollObj, dresikObj, seagullObj]
     obstacleObjectArray.forEach(object =>
         object.x = 1100)
@@ -307,7 +307,7 @@ function restartGame() {
     FRAME_Y = 0
     delta = 0
     restartBackgroundPosition()
-    restartObsraclePosition()
+    restartObstaclePosition()
     getRandomNumberForSingleObstacle()
     startGame()
 }
