@@ -320,24 +320,29 @@ function drawSingleObstacle(obstacleNumber) {
         case 1:
             drawImage(manholl, manhollObj.x, manhollObj.y, manhollObj.width, manhollObj.height)
             animateObstacle(manhollObj)
+            collision(manhollObj)
             break
         case 2:
             drawImage(dresik, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
             animateObstacle(dresikObj)
+            collision(dresikObj)
             break
         case 3:
             drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
             animateObstacle(dresikObj)
+            collision(dresikObj)
             break
         case 4:
             drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
             drawImage(manholl, manhollObj.x - 70, manhollObj.y + 10, manhollObj.width, manhollObj.height)
             animateObstacle(dresikObj)
             animateObstacle(manhollObj)
+            collision(manhollObj)
             break
         case 5:
             drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
             animateObstacle(seagullObj)
+            collision(seagullObj)
             break
         default:
             break
@@ -364,4 +369,15 @@ function animateObstacle(obstacleObject) {
     }
 }
 
+
+function collision(enemy) {
+
+    if (hero.x < (enemy.x + enemy.width) - 25 &&
+        (hero.x + hero.width) - 65 > enemy.x &&
+        hero.y < enemy.y + enemy.height &&
+        hero.y + hero.height > enemy.y){
+        pause()
+        }
+
+}
 
