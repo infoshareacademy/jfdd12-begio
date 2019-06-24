@@ -146,6 +146,7 @@ const openRanking = () => {
 const closeRanking = () => {
     if (isRankingOpen) {
         ranking.style.display = "none"
+
         isRankingOpen = false
 
     }
@@ -153,6 +154,7 @@ const closeRanking = () => {
 const toggleRanking = () => {
     if (isRankingOpen) {
         closeRanking()
+
         play()
     } else {
         openRanking()
@@ -164,6 +166,7 @@ const closeInstruction = () => {
     play()
 }
 const openInstruction = () => {
+    lost.style.display = "none"
     button_start.style.display = "none"
     instruction.style.display = 'block'
     closeRanking()
@@ -171,9 +174,10 @@ const openInstruction = () => {
 }
 
 const startGameButton = () => {
-
+    getready.style.display = "block"
     closeInstruction()
     setTimeout(() => {
+        getready.style.display = "none"
         play()
     }, 3000);
 
@@ -285,13 +289,13 @@ function loop(time) {
 function startGame() {
     loop(lastTime)
 }
-function restartBackgroundPosition(){
+function restartBackgroundPosition() {
     let backgroundObiectsArray = [backgroundObj, secondBackgroundObj, baseObj]
     backgroundObiectsArray.forEach(object =>
         object.x = 0)
 }
 
-function restartObstaclePosition(){
+function restartObstaclePosition() {
     let obstacleObjectArray = [manhollObj, dresikObj, seagullObj]
     obstacleObjectArray.forEach(object =>
         object.x = 1100)
@@ -309,6 +313,8 @@ function restartGame() {
     restartBackgroundPosition()
     restartObstaclePosition()
     getRandomNumberForSingleObstacle()
+    pause_button.style.display = "block"
+    lost.style.display = "none"
     startGame()
 }
 
@@ -387,9 +393,14 @@ function collision(enemy) {
     if (hero.x < (enemy.x + enemy.width) - 25 &&
         (hero.x + hero.width) - 65 > enemy.x &&
         hero.y < enemy.y + enemy.height &&
-        hero.y + hero.height > enemy.y){
+        hero.y + hero.height > enemy.y) {
         pause()
+        lost.style.display = "block"
+        if (lost.style.display = "block") {
+            pause_button.style.display = "none"
         }
+
+    }
 
 }
 

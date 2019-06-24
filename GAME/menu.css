@@ -1,41 +1,78 @@
 #menu {
-    display: flex;
-    flex-flow: row;
+  display: flex;
+  flex-flow: row;
 
-    width: 987px;
+  width: 987px;
 
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
-#menu>div {
-
-    width: 200px;
-    padding: 0.2em;
-    border-radius: 0.5em;
-    background: rgb(193, 193, 221);
-    text-align: center;
-    color: rgb(48, 47, 66);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+#menu > div {
+  width: 200px;
+  padding: 0.2em;
+  border-radius: 0.5em;
+  background: rgb(193, 193, 221);
+  text-align: center;
+  color: rgb(48, 47, 66);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-#menu>div:hover {
-    cursor: pointer;
-    background: rgb(224, 213, 238);
-
-
+#menu > div:hover {
+  cursor: pointer;
+  background: rgb(224, 213, 238);
 }
 
 #ranking {
-    display: none;
-    padding-left: 200px;
-    margin-top: 0.1em;
-    position: absolute;
-    width: 987px;
-    height: 670px;
-    background: rgba(255, 255, 255, 0.479);
-    font-size: 80px;
+  display: none;
+  padding-left: 200px;
+  margin-top: 0.1em;
+  position: absolute;
+  width: 987px;
+  height: 670px;
+  background: rgb(255, 255, 255);
+  font-size: 80px;
 }
 
-#ranking>ul>li {
-    list-style: none;
+#ranking > ul > li {
+  list-style: none;
+}
+#lost {
+  display: none;
+  background: rgb(0, 0, 0);
+  margin-top: 0.1em;
+  position: absolute;
+  width: 987px;
+  height: 670px;
+  font-size: 50px;
+  text-align: center;
+}
+
+#lost > p {
+  color: white;
+  text-align: center;
+}
+
+#restart_button {
+  background: rgb(193, 193, 221);
+  cursor: pointer;
+  font-size: 0.5em;
+  color: rgb(48, 47, 66);
+  margin: 0 15em;
+  border-radius: 1em;
+}
+#restart_button:hover {
+  background: rgb(224, 213, 238);
+}
+
+#getready {
+  display: none;
+  background: rgb(255, 255, 255);
+  margin-top: 0.1em;
+  position: absolute;
+  padding-top: 5em;
+  width: 987px;
+  height: 670px;
+  font-size: 50px;
+  text-align: center;
 }
