@@ -37,7 +37,7 @@ let baseObj = {
 }
 
 let hero = {
-    x: 20,
+    x: 300,
     y: HEIGHT - 200,
     height: 148,
     width: 144
@@ -334,7 +334,7 @@ function drawSingleObstacle(obstacleNumber) {
             break
         case 4:
             drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
-            drawImage(manholl, manhollObj.x - 70, manhollObj.y + 10, manhollObj.width, manhollObj.height)
+            drawImage(manholl, manhollObj.x - 80, manhollObj.y + 20, manhollObj.width, manhollObj.height)
             animateObstacle(dresikObj)
             animateObstacle(manhollObj)
             collision(manhollObj)
