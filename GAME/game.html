@@ -2,52 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="instruction.css" />
-  <link rel="stylesheet" href="menu.css" />
-  <title>Dres Up</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="instruction.css" />
+<link rel="stylesheet" href="menu.css" />
+<title>Dres Up</title>
 </head>
 
 <body>
-  <div id="instruction">
-    <h1 class="headerRules">
-      ZASADY GRY:<button id="close_instruction" class="exitButton">X</button>
-    </h1>
-    <p>
-      W Gdańsku na Starym Mieście czyhają na ciebie dresy, mewy i otwarte
-      studzienki.
-    </p>
-    <p>
-      KLIKNIJ! <strong>na SPACJĘ</strong> , aby przeskoczyć napotkaną
-      przeszkodę, albo pozostań bez ruchu, aby nie capnęła cię mewa.
-    </p>
-    <p>
-      <strong>UWAGA!</strong> Bądź czujny! Po każdych 30 sekundach poziom gry
-      wzrasta i przeszkody zaczynają przyspieszać!
-    </p>
-    <p>Im dłużej wytrwasz "na mieście", tym lepszy uzyskasz wynik!</p>
-    <button id="button_start" class="startButton">START</button>
-  </div>
+<div id="instruction">
+<h1 class="headerRules">
+ZASADY GRY:<button id="close_instruction" class="exitButton">X</button>
+</h1>
+<p>
+W Gdańsku na Starym Mieście czyhają na ciebie dresy, mewy i otwarte
+studzienki.
+</p>
+<p>
+KLIKNIJ! <strong>na SPACJĘ</strong> , aby przeskoczyć napotkaną
+przeszkodę, albo pozostań bez ruchu, aby nie capnęła cię mewa.
+</p>
+<p>
+<strong>UWAGA!</strong> Bądź czujny! Po każdych 30 sekundach poziom gry
+wzrasta i przeszkody zaczynają przyspieszać!
+</p>
+<p>Im dłużej wytrwasz "na mieście", tym lepszy uzyskasz wynik!</p>
+<button id="button_start" class="startButton">START</button>
+</div>
 
-  <div id="menu">
-    <div id="restart_button"><img src="restart.png" /><br />Restart</div>
-    <div id="pause_button"><img src="play.png" /><br />Pauza</div>
-    <div id="score_button"><img src="score.png" /><br />Ranking</div>
-    <div id="instruction_button">
-      <img src="instruction.png" /><br />Instrukcja
-    </div>
-  </div>
-  <div id="ranking">
-    <ul>
-      Ranking wyników
-      <li>Fist</li>
-      <li>Second</li>
-      <li>Third</li>
-    </ul>
-  </div>
-  <script src="script.js"></script>
+<div id="menu">
+<div id="restart_button"><img src="restart.png" /><br />Restart</div>
+<div id="pause_button"><img src="play.png" /><br />Pauza</div>
+<div id="score_button"><img src="score.png" /><br />Ranking</div>
+<div id="instruction_button">
+<img src="instruction.png" /><br />Instrukcja
+</div>
+</div>
+<div id="ranking">
+<ul>
+Ranking wyników
+<li>Fist</li>
+<li>Second</li>
+<li>Third</li>
+</ul>
+</div>
+
+<div id="counter" hidden=true> 
+<p id="countdowntimer">3</p>
+</div>
+
+<script src="script.js"></script>
 </body>
 
 </html>
