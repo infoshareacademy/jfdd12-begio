@@ -1,21 +1,6 @@
 const WIDTH = 987
 const HEIGHT = 673
-const BASE_HEIGHT = 88
-const BASE_WIDTH = 987
-const MANHOLL_WIDTH = 70
-const MANHOLL_HEIGHT = 31
-const DRESIK_WIDTH = 56
-const DRESIK_HEIGHT = 90
-const SEAGULL_WIDTH = 70
-const SEAGULL_HEIGHT = 40
 
-let backgroundX = 0
-let baseX = 0
-let seagullX = WIDTH / 2
-let seagullY = HEIGHT / 2
-let baseY = HEIGHT - BASE_HEIGHT
-let dresikY = HEIGHT - BASE_HEIGHT - 50
-let obscaleX = 1100
 let backgroundImage
 let secondBackgroundImage
 let baseImage
@@ -29,11 +14,55 @@ let requestAnimationFrameId = 0
 let lastTime = 0
 let isPlaying = false
 let isRankingOpen = false
+
+let backgroundObj = {
+    x: 0,
+    y: 0,
+    width: WIDTH,
+    height: HEIGHT
+}
+
+let secondBackgroundObj = {
+    x: 0,
+    y: 0,
+    width: WIDTH,
+    height: HEIGHT
+}
+
+let baseObj = {
+    x: 0,
+    y: HEIGHT - 88,
+    width: WIDTH,
+    height: 88
+}
+
 let hero = {
     x: 20,
     y: HEIGHT - 200,
     height: 148,
     width: 144
+}
+
+let manhollObj = {
+    x: 1100,
+    y: HEIGHT - 88,
+    width: 70,
+    height: 31
+}
+
+let dresikObj = {
+    x: 1100,
+    y: HEIGHT - 138,
+    width: 56,
+    height: 90
+}
+
+
+let seagullObj = {
+    x: 1100,
+    y: HEIGHT / 2,
+    width: 70,
+    height: 40
 }
 
 let FRAME_X = 0
@@ -93,8 +122,8 @@ function loadImage(imageUrl) {
     return image
 }
 
-function drawImage(image, x, y, w, h) {
-    ctx.drawImage(image, x, y, w, h)
+function drawImage(image, x, y, width, height) {
+    ctx.drawImage(image, x, y, width, height)
 }
 
 const pause = () => (isPlaying = false)
@@ -237,16 +266,17 @@ function heroMovement() {
     }
 }
 
-getRandomNumberForSingleObscale()
+getRandomNumberForSingleObstacle()
 
 function loop(time) {
     frameCount++
     lastTime = time
     if (isPlaying) {
         drawBackground()
-        drawImage(baseImage, baseX, baseY, BASE_WIDTH, BASE_HEIGHT)
+        drawImage(baseImage, baseObj.x, baseObj.y, baseObj.width, baseObj.height)
         animateHero()
-        animateBackground()
+        animateBackground(backgroundObj)
+        animateBackground(secondBackgroundObj)
         drawSingleObstacle(obstacleNumber)
     }
     requestAnimationFrameId = requestAnimationFrame(loop)
@@ -265,8 +295,8 @@ function restartGame() {
     FRAME_X = 0
     FRAME_Y = 0
     delta = 0
-    obscaleX = 1100
-    getRandomNumberForSingleObscale()
+     obstacleX = 1100
+    getRandomNumberForSingleObstacle()
     startGame()
 }
 
@@ -276,64 +306,62 @@ function randomNumber(min, max) {
     return Math.round(Math.random() * (max - min) + min)
 }
 
-function getRandomNumberForSingleObscale() {
+function getRandomNumberForSingleObstacle() {
     obstacleNumber = randomNumber(1, 5)
 }
 
 function drawBackground() {
-    drawImage(backgroundImage, backgroundX, 0, WIDTH, HEIGHT)
-    drawImage(secondBackgroundImage, backgroundX + WIDTH, 0, WIDTH, HEIGHT)
+    drawImage(backgroundImage, backgroundObj.x, backgroundObj.y, backgroundObj.width, backgroundObj.height)
+    drawImage(secondBackgroundImage, secondBackgroundObj.x + WIDTH, secondBackgroundObj.y, secondBackgroundObj.width, secondBackgroundObj.height)
 }
 
 function drawSingleObstacle(obstacleNumber) {
     switch (obstacleNumber) {
         case 1:
-            drawImage(manholl, obscaleX, baseY, MANHOLL_WIDTH, MANHOLL_HEIGHT)
-            animateObscale()
+            drawImage(manholl, manhollObj.x, manhollObj.y, manhollObj.width, manhollObj.height)
+            animateObstacle(manhollObj)
             break
         case 2:
-            drawImage(dresik, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
-            animateObscale()
+            drawImage(dresik, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
+            animateObstacle(dresikObj)
             break
         case 3:
-            drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
-            animateObscale()
+            drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
+            animateObstacle(dresikObj)
             break
         case 4:
-            drawImage(
-                manholl,
-                obscaleX - 70,
-                baseY + 10,
-                MANHOLL_WIDTH,
-                MANHOLL_HEIGHT
-            )
-            drawImage(dresik2, obscaleX, dresikY, DRESIK_WIDTH, DRESIK_HEIGHT)
-            animateObscale()
+            drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
+            drawImage(manholl, manhollObj.x - 70, manhollObj.y + 10, manhollObj.width, manhollObj.height)
+            animateObstacle(dresikObj)
+            animateObstacle(manhollObj)
             break
         case 5:
-            drawImage(seagull, obscaleX, 100, SEAGULL_WIDTH, SEAGULL_HEIGHT)
-            animateObscale()
+            drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
+            animateObstacle(seagullObj)
             break
         default:
             break
     }
 }
 
-function animateBackground() {
-    backgroundX -= 3
+function animateBackground(imageObject) {
+    imageObject.x -= 3
 
-    if (backgroundX < -WIDTH) {
-        backgroundX = 0
-        backgroundX -= 1
+    if (imageObject.x < -WIDTH) {
+        imageObject.x = 0
+        imageObject.x -= 1
     }
 }
 
-const animationSpeed = 4
+const animationSpeed = 6
 
-function animateObscale() {
-    obscaleX -= animationSpeed
-    if (obscaleX < -100) {
-        obscaleX = 1100
-        getRandomNumberForSingleObscale()
+function animateObstacle(obstacleObject) {
+    obstacleObject.x -= animationSpeed
+    console.log(obstacleObject.x)
+    if (obstacleObject.x < - obstacleObject.width) {
+        obstacleObject.x = 1100
+        getRandomNumberForSingleObstacle()
     }
 }
+
+
