@@ -12,8 +12,13 @@ let obstacleNumber
 let seagull
 let requestAnimationFrameId = 0
 let lastTime = 0
+let scoreTime = 0
 let isPlaying = false
 let isRankingOpen = false
+let animationSpeed = 6
+let startRandomNumber = 1
+let endRandomNumber = 4
+
 
 let backgroundObj = {
     x: 0,
@@ -37,7 +42,7 @@ let baseObj = {
 }
 
 let hero = {
-    x: 300,
+    x: 100,
     y: HEIGHT - 200,
     height: 148,
     width: 144
@@ -67,10 +72,9 @@ let seagullObj = {
 
 let FRAME_X = 0
 let FRAME_Y = 0
-let delta = 0
 let frameCount = 0
 
-let jumpSpeed = 5
+let jumpSpeed = 7
 let maxJumpHeight = 300
 let currentJumpHeight = 0
 let isHeroJumping = false
@@ -273,9 +277,13 @@ function heroMovement() {
 getRandomNumberForSingleObstacle()
 
 function loop(time) {
+    //console.log(time)
     frameCount++
     lastTime = time
     if (isPlaying) {
+        scoreTime += 16
+        console.log(scoreTime / 1000)
+        difficultLevel(scoreTime)
         drawBackground()
         drawImage(baseImage, baseObj.x, baseObj.y, baseObj.width, baseObj.height)
         animateHero()
@@ -307,9 +315,11 @@ function restartGame() {
     frameCount = 0
     isPlaying = true
     lastTime = 0
+    scoreTime = 0
+    animationSpeed = 6
+    endRandomNumber = 4
     FRAME_X = 0
     FRAME_Y = 0
-    delta = 0
     restartBackgroundPosition()
     restartObstaclePosition()
     getRandomNumberForSingleObstacle()
@@ -325,7 +335,7 @@ function randomNumber(min, max) {
 }
 
 function getRandomNumberForSingleObstacle() {
-    obstacleNumber = randomNumber(1, 5)
+    obstacleNumber = randomNumber(startRandomNumber, endRandomNumber)
 }
 
 function drawBackground() {
@@ -376,11 +386,9 @@ function animateBackground(imageObject) {
     }
 }
 
-const animationSpeed = 6
 
 function animateObstacle(obstacleObject) {
     obstacleObject.x -= animationSpeed
-    console.log(obstacleObject.x)
     if (obstacleObject.x < - obstacleObject.width) {
         obstacleObject.x = 1100
         getRandomNumberForSingleObstacle()
@@ -396,11 +404,22 @@ function collision(enemy) {
         hero.y + hero.height > enemy.y) {
         pause()
         lost.style.display = "block"
-        if (lost.style.display = "block") {
+        if (lost.style.display = "block") { //po co ten iffff????
             pause_button.style.display = "none"
         }
-
     }
-
 }
 
+function difficultLevel(timeS){
+    timeLevel = timeS / 1000
+    if(timeLevel > 15 && timeLevel < 16){
+        endRandomNumber = 5
+    }
+    else if(timeLevel > 25 && timeLevel < 26){
+        animationSpeed = 10
+    }
+    else if(timeLevel > 30 && timeLevel < 31){
+        console.log("hej")
+    }
+}
+    
