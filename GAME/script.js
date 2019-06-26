@@ -336,6 +336,7 @@ function restartGame() {
     lastTime = 0
     scoreTime = 0
     animationSpeed = 6
+    startRandomNumber = 1
     endRandomNumber = 4
     FRAME_X = 0
     FRAME_Y = 0
@@ -497,10 +498,10 @@ function collisionDoubleObject(firsteEnemy, secondEnemy) {
 
 function difficultLevel(timeS){
     timeLevel = timeS / 1000
-    if(timeLevel > 10 && timeLevel < 11){
-        animationSpeed = 8
+    if(timeLevel > 15 && timeLevel < 16){
+        animationSpeed = 9
     }
-    else if(timeLevel > 14 && timeLevel < 15){
+    else if(timeLevel > 20 && timeLevel < 21){
         startRandomNumber = 5
         endRandomNumber = 6
     }
