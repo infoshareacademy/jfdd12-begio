@@ -163,7 +163,9 @@ const toggleRanking = () => {
 }
 const closeInstruction = () => {
     instruction.style.display = 'none'
+    if (isPlaying) {
     play()
+    }
 }
 const openInstruction = () => {
     lost.style.display = "none"
