@@ -212,6 +212,7 @@ const closeInstruction = () => {
     play()
 }
 const openInstruction = () => {
+
     lost.style.display = "none"
     button_start.style.display = "none"
     instruction.style.display = 'block'
@@ -221,6 +222,7 @@ const openInstruction = () => {
 
 const startGameButton = () => {
     getready.style.display = "block"
+
     closeInstruction()
     setTimeout(() => {
         getready.style.display = "none"
@@ -552,3 +554,4 @@ function difficultLevel(timeS) {
         endRandomNumber = 6
     }
 }
+
