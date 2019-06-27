@@ -154,6 +154,17 @@ const togglePause = () => {
 }
 const openRanking = () => {
     if (!isRankingOpen) {
+
+        scores = JSON.parse(localStorage.getItem('scores'))
+        let ScoreList = document.querySelector('#ranking')
+        ScoreList.innerHTML = "Twoje wyniki:";
+        for (let i = 0; i < scores.length; i++) {
+            let paragraph = ScoreList.appendChild(document.createElement("p"))
+            paragraph.innerHTML = "wynik nr " + [i + 1] + "_____" + scores[i] + '<img src="star.png">'
+
+        }
+
+
         closeInstruction()
 
         isRankingOpen = true
@@ -310,7 +321,7 @@ function loop(time) {
     if (isPlaying) {
         scoreTime += 16
 
-        timer.innerHTML = "twój wynik to: " + Math.floor(Math.round(scoreTime / 1000)) + '<img src="star.png">'
+        timer.innerHTML = "twój obecny wynik to: " + Math.floor(Math.round(scoreTime / 1000)) + '<img src="star.png">'
         difficultLevel(scoreTime)
         drawBackground()
         drawImage(baseImage, baseObj.x, baseObj.y, baseObj.width, baseObj.height)
@@ -339,11 +350,6 @@ function restartObstaclePosition() {
 }
 
 AddScoreToRanking = () => {
-    let oneScore = document.createElement("li")
-    oneScore.innerHTML = Math.floor(Math.round(scoreTime / 1000))
-    let ScoreList = document.querySelector('#rankingList')
-    ScoreList.appendChild(oneScore)
-
     scores.push(Math.floor(Math.round(scoreTime / 1000)))
     let stringifiedScores = JSON.stringify(scores)
     localStorage.setItem('scores', stringifiedScores)
