@@ -32,8 +32,10 @@
   height: 670px;
   background: rgba(255, 255, 255);
   font-size: 40px;
+  color: rgb(48, 47, 66);
 }
 #ranking > p {
+  color: rgb(48, 47, 66);
   font-size: 25px;
   margin-left: 5em;
 }

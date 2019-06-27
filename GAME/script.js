@@ -152,34 +152,39 @@ const togglePause = () => {
     isPlaying = !isPlaying
     closeRanking()
 }
+
+AddScoreToRanking = () => {
+    scores.push(Math.floor(Math.round(scoreTime / 1000)))
+    let stringifiedScores = JSON.stringify(scores)
+    localStorage.setItem('scores', stringifiedScores)
+    console.log(localStorage)
+}
+
 const openRanking = () => {
     if (!isRankingOpen) {
-
         let bestScore = Math.max.apply(Math, scores)
         console.log(bestScore)
 
         scores = JSON.parse(localStorage.getItem('scores'))
         let ScoreList = document.querySelector('#ranking')
-        ScoreList.innerHTML = "Najlepszy wynik: " + bestScore + '<br>' + "Wszystkie:";
-        if (ScoreList.innerHTML.includes("-Infinity")) {
-            ScoreList.innerHTML = "Twoje wyniki: ";
-        }
+        ScoreList.innerHTML = "Twoje wyniki: ";
+
         for (let i = 0; i < scores.length; i++) {
-            let paragraph = ScoreList.appendChild(document.createElement("p"))
+            let paragraph = document.createElement("p")
+            ScoreList.appendChild(paragraph)
             paragraph.innerHTML = "wynik nr " + [i + 1] + "_____" + scores[i] + '<img src="star.png">'
 
             if (scores[i] == bestScore) {
                 paragraph.innerHTML = ("wynik nr " + [i + 1] + "_____" + scores[i] + '<img src="star2.png">').bold()
             }
-
+        }
+        if (scores.length >= 5) {
+            scores = []
         }
 
-
         closeInstruction()
-
         isRankingOpen = true
         ranking.style.display = "block"
-
     }
 }
 const closeRanking = () => {
@@ -359,12 +364,8 @@ function restartObstaclePosition() {
         object.x = 1100)
 }
 
-AddScoreToRanking = () => {
-    scores.push(Math.floor(Math.round(scoreTime / 1000)))
-    let stringifiedScores = JSON.stringify(scores)
-    localStorage.setItem('scores', stringifiedScores)
-    console.log(localStorage)
-}
+
+
 
 
 
