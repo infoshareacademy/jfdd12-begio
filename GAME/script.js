@@ -155,12 +155,22 @@ const togglePause = () => {
 const openRanking = () => {
     if (!isRankingOpen) {
 
+        let bestScore = Math.max.apply(Math, scores)
+        console.log(bestScore)
+
         scores = JSON.parse(localStorage.getItem('scores'))
         let ScoreList = document.querySelector('#ranking')
-        ScoreList.innerHTML = "Twoje wyniki:";
+        ScoreList.innerHTML = "Najlepszy wynik: " + bestScore + '<br>' + "Wszystkie:";
+        if (ScoreList.innerHTML.includes("-Infinity")) {
+            ScoreList.innerHTML = "Twoje wyniki: ";
+        }
         for (let i = 0; i < scores.length; i++) {
             let paragraph = ScoreList.appendChild(document.createElement("p"))
             paragraph.innerHTML = "wynik nr " + [i + 1] + "_____" + scores[i] + '<img src="star.png">'
+
+            if (scores[i] == bestScore) {
+                paragraph.innerHTML = ("wynik nr " + [i + 1] + "_____" + scores[i] + '<img src="star2.png">').bold()
+            }
 
         }
 

@@ -30,8 +30,12 @@
   position: absolute;
   width: 987px;
   height: 670px;
-  background: rgb(255, 255, 255);
-  font-size: 50px;
+  background: rgba(255, 255, 255);
+  font-size: 40px;
+}
+#ranking > p {
+  font-size: 25px;
+  margin-left: 5em;
 }
 
 #ranking > ul > li {
