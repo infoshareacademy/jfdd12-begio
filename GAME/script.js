@@ -21,6 +21,9 @@ let startRandomNumber = 1
 let endRandomNumber = 4
 let obstacleShift = 500
 
+let scores = []
+
+
 
 let backgroundObj = {
     x: 0,
@@ -152,19 +155,23 @@ const togglePause = () => {
 const openRanking = () => {
     if (!isRankingOpen) {
         closeInstruction()
+
         isRankingOpen = true
         ranking.style.display = "block"
+
     }
 }
 const closeRanking = () => {
     if (isRankingOpen) {
         ranking.style.display = "none"
 
+
         isRankingOpen = false
 
     }
 }
 const toggleRanking = () => {
+
     if (isRankingOpen) {
         closeRanking()
 
@@ -286,22 +293,24 @@ function heroMovement() {
 getRandomNumberForSingleObstacle()
 getRandomNumberForDoubleObstacle()
 
-function drawObscale(wchichOne){
-    if(wchichOne = 1){
+function drawObscale(wchichOne) {
+    if (wchichOne = 1) {
         drawSingleObstacle(obstacleNumber)
     }
-    else if(wchichOne = 2){
+    else if (wchichOne = 2) {
 
     }
 }
 
+
 function loop(time) {
-    //console.log(time)
+
     frameCount++
     lastTime = time
     if (isPlaying) {
         scoreTime += 16
-        console.log(scoreTime / 1000)
+
+        timer.innerHTML = "twój wynik to: " + Math.floor(Math.round(scoreTime / 1000)) + '<img src="star.png">'
         difficultLevel(scoreTime)
         drawBackground()
         drawImage(baseImage, baseObj.x, baseObj.y, baseObj.width, baseObj.height)
@@ -312,6 +321,7 @@ function loop(time) {
     }
     requestAnimationFrameId = requestAnimationFrame(loop)
 }
+
 
 function startGame() {
     loop(lastTime)
@@ -328,8 +338,24 @@ function restartObstaclePosition() {
         object.x = 1100)
 }
 
+AddScoreToRanking = () => {
+    let oneScore = document.createElement("li")
+    oneScore.innerHTML = Math.floor(Math.round(scoreTime / 1000))
+    let ScoreList = document.querySelector('#rankingList')
+    ScoreList.appendChild(oneScore)
+
+    scores.push(Math.floor(Math.round(scoreTime / 1000)))
+    let stringifiedScores = JSON.stringify(scores)
+    localStorage.setItem('scores', stringifiedScores)
+    console.log(localStorage)
+}
+
+
+
+
 
 function restartGame() {
+    AddScoreToRanking()
     cancelAnimationFrame(requestAnimationFrameId)
     frameCount = 0
     isPlaying = true
@@ -346,6 +372,7 @@ function restartGame() {
     getRandomNumberForSingleObstacle()
     pause_button.style.display = "block"
     lost.style.display = "none"
+
     startGame()
 }
 
@@ -374,7 +401,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(manholl, manhollObj.x, manhollObj.y, manhollObj.width, manhollObj.height)
             animateObstacle(manhollObj)
             collision(manhollObj)
-            
+
             break
         case 2:
             drawImage(dresik, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
@@ -387,7 +414,7 @@ function drawSingleObstacle(obstacleNumber) {
             collision(dresikObj)
             break
         case 4:
-             drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
+            drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
             animateObstacle(seagullObj)
             collision(seagullObj)
             break
@@ -427,7 +454,7 @@ function drawDoubleObstacle(doubleObstacleNumber) {
             animateDoubleObstacle(dresikObj, secondDresikObj)
             collisionDoubleObject(dresikObj, secondDresikObj)
             break
-            default:
+        default:
             break
     }
 }
@@ -458,11 +485,13 @@ function collision(enemy) {
         hero.y < enemy.y + enemy.height &&
         hero.y + hero.height > enemy.y) {
         pause()
+
         lost.style.display = "block"
         if (lost.style.display = "block") { //po co ten iffff????
             pause_button.style.display = "none"
         }
     }
+
 }
 
 
@@ -471,7 +500,7 @@ function animateDoubleObstacle(firstObstacleObject, secondObstacleObject) {
     secondObstacleObject.x -= animationSpeed
     if (firstObstacleObject.x < - firstObstacleObject.width && secondObstacleObject.x < - secondObstacleObject.width) {
         firstObstacleObject.x = 1100
-        secondObstacleObject.x = 1700 
+        secondObstacleObject.x = 1700
         getRandomNumberForDoubleObstacle()
         getRandomNumberForSingleObstacle()
     }
@@ -482,12 +511,12 @@ function collisionDoubleObject(firsteEnemy, secondEnemy) {
 
     if ((hero.x < (firsteEnemy.x + firsteEnemy.width) - 25 &&
         (hero.x + hero.width) - 65 > firsteEnemy.x && //czo to 65 i 25???
-        hero.y <  firsteEnemy.y + firsteEnemy.height &&
+        hero.y < firsteEnemy.y + firsteEnemy.height &&
         hero.y + hero.height > firsteEnemy.y) ||
         (hero.x < (secondEnemy.x + secondEnemy.width) - 25 &&
-        (hero.x + hero.width) - 65 > secondEnemy.x && 
-        hero.y <  secondEnemy.y + secondEnemy.height &&
-        hero.y + hero.height > secondEnemy.y)) {
+            (hero.x + hero.width) - 65 > secondEnemy.x &&
+            hero.y < secondEnemy.y + secondEnemy.height &&
+            hero.y + hero.height > secondEnemy.y)) {
         pause()
         lost.style.display = "block"
         if (lost.style.display = "block") { //po co ten iffff????
@@ -496,14 +525,13 @@ function collisionDoubleObject(firsteEnemy, secondEnemy) {
     }
 }
 
-function difficultLevel(timeS){
+function difficultLevel(timeS) {
     timeLevel = timeS / 1000
-    if(timeLevel > 15 && timeLevel < 16){
+    if (timeLevel > 15 && timeLevel < 16) {
         animationSpeed = 9
     }
-    else if(timeLevel > 20 && timeLevel < 21){
+    else if (timeLevel > 20 && timeLevel < 21) {
         startRandomNumber = 5
         endRandomNumber = 6
     }
 }
-    
