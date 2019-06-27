@@ -163,14 +163,13 @@ const toggleRanking = () => {
 }
 const closeInstruction = () => {
     instruction.style.display = 'none'
-    if (isPlaying) {
     play()
-    }
 }
 const openInstruction = () => {
     lost.style.display = "none"
     button_start.style.display = "none"
-    instruction.style.display = 'block'
+    close_instruction.style.display = "block"
+    instruction.style.display = "block"
     closeRanking()
     pause()
 }
@@ -300,6 +299,7 @@ function loop(time) {
 }
 
 function startGame() {
+    close_instruction.style.display = "none"
     loop(lastTime)
 }
 
