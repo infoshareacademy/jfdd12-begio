@@ -129,14 +129,11 @@ function drawImage(image, x, y, width, height) {
 
 const pause = () => (isPlaying = false)
 
-
-
-
 const play = () => (isPlaying = true)
 const togglePause = () => {
     isPlaying = !isPlaying
     closeRanking()
-    closeInstruction()
+    instruction.style.display = 'none'
 }
 const openRanking = () => {
     if (!isRankingOpen) {
@@ -177,12 +174,9 @@ const openInstruction = () => {
 }
 
 function countdown() {
-  
-    if(isPlaying){
-        pause_button.removeEventListener("click", togglePause)
-        instruction_button.removeEventListener("click", openInstruction) 
-        score_button.removeEventListener("click", toggleRanking)
-    } 
+    pause_button.removeEventListener("click", togglePause)
+    instruction_button.removeEventListener("click", openInstruction) 
+    score_button.removeEventListener("click", toggleRanking)
 
     let timeleft = 3;
     document.getElementById("counter").hidden = false
@@ -210,11 +204,7 @@ const startGameButton = () => {
     pause();
 }
 
-// document.getElementById("instruction_button")
-// instruction_button.addEventListener('click', openInstruction)
-
-document.getElementById("pause_button")
-pause_button.addEventListener("click", togglePause)
+const pause_button = document.getElementById("pause_button")
 
 const closeInstructionButton = document.getElementById("close_instruction")
 closeInstructionButton.addEventListener("click", closeInstruction)
@@ -226,7 +216,6 @@ document.getElementById("restart_button")
 restart_button.addEventListener("click", restartGame)
 
 const ranking = document.getElementById("ranking")
-score_button.addEventListener("click", toggleRanking)
 
 document.addEventListener("keydown", userPressedSpace)
 
