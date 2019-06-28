@@ -215,17 +215,28 @@ const openInstruction = () => {
 
     lost.style.display = "none"
     button_start.style.display = "none"
-    instruction.style.display = 'block'
+    close_instruction.style.display = "block"
+    instruction.style.display = "block"
     closeRanking()
     pause()
 }
 
-const startGameButton = () => {
-    getready.style.display = "block"
+function countdown() {
+    let timeleft = 3;
+    document.getElementById("counter").hidden = false
+    let downloadTimer = setInterval(function () {
+        timeleft--;
+        document.getElementById("countdowntimer").textContent = timeleft;
+        if (timeleft <= 0)
+            clearInterval(downloadTimer)
+    }, 1000);
+}
 
+const startGameButton = () => {
     closeInstruction()
+    countdown()
     setTimeout(() => {
-        getready.style.display = "none"
+        counter.style.display = "none"
         play()
     }, 3000);
 
@@ -352,8 +363,10 @@ function loop(time) {
 
 
 function startGame() {
+    close_instruction.style.display = "none"
     loop(lastTime)
 }
+
 function restartBackgroundPosition() {
     let backgroundObiectsArray = [backgroundObj, secondBackgroundObj, baseObj]
     backgroundObiectsArray.forEach(object =>
