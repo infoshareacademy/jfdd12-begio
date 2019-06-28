@@ -84,12 +84,36 @@
                 jedną
                 wiadomość.</p>
         </div>
-        <form class="mailForm">   <!-- action="" method="POST" -->
-            <input type="email" name="email" placeholder="adres email" required
+        <div class="mailForm">   <!-- action="" method="POST" -->
+            <div class="popup">
+                <span class="popuptext" id="emptyEmail">
+                    <p>Pole nie może być puste!</p>
+                </span>
+            </div>
+            <div class="popup">
+                <span class="popuptext" id="invalidEmail">
+                    <p>Podany adres e-mail jest niepoprawny!</p>
+                </span>
+            </div>
+            <input type="email" name="email" id="emailInput" placeholder="adres email" required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-                <button>Wyslij</button>
-                 
-        </form>
+            <button id="send_email">Wyslij</button>
+            <div class="popup">
+                <span class="popuptext" id="goodEmail">
+                    <button class="gameButtonNo" id="exitGameButton2" id="noThanks">x</button>
+                    <p>Dzięki za maila! W nagrodę zagraj w naszą grę!</p>
+                    <form>
+                        <input type="button" value="Przejdź do gry"class="gameButton" id="goToTheGame" onclick="window.location.href='/GAME/game.html'"/>
+                    </form>
+                </span>
+            </div>
+            <div class="popup">
+                <span class="popuptext" id="emailExist">
+                    <button class="gameButtonNo" id="exitGameButton1" id="noThanks">x</button>
+                        <p>Ten adres e-mail został już podany</p>
+                </span>
+            </div>
+        </div>
         <p>* Uzupełniając formularz zgadzasz się na przetwarzanie swoich informacji osobowych zgodnie z naszą
             Polityką
             Prywatności.</p>
