@@ -15,6 +15,7 @@ let lastTime = 0
 let isPlaying = false
 let isRankingOpen = false
 
+
 let backgroundObj = {
     x: 0,
     y: 0,
@@ -135,6 +136,7 @@ const play = () => (isPlaying = true)
 const togglePause = () => {
     isPlaying = !isPlaying
     closeRanking()
+    closeInstruction()
 }
 const openRanking = () => {
     if (!isRankingOpen) {
@@ -175,6 +177,13 @@ const openInstruction = () => {
 }
 
 function countdown() {
+  
+    if(isPlaying){
+        pause_button.removeEventListener("click", togglePause)
+        instruction_button.removeEventListener("click", openInstruction) 
+        score_button.removeEventListener("click", toggleRanking)
+    } 
+
     let timeleft = 3;
     document.getElementById("counter").hidden = false
     let downloadTimer = setInterval(function () {
@@ -182,7 +191,9 @@ function countdown() {
         document.getElementById("countdowntimer").textContent = timeleft;
         if (timeleft <= 0)
             clearInterval(downloadTimer)
+            
     }, 1000);
+    
 }
 
 const startGameButton = () => {
@@ -190,14 +201,17 @@ const startGameButton = () => {
     countdown()
     setTimeout(() => {
         counter.style.display = "none"
+        pause_button.addEventListener("click", togglePause)
+        instruction_button.addEventListener("click", openInstruction) 
+        score_button.addEventListener("click", toggleRanking)
         play()
     }, 3000);
 
     pause();
 }
 
-document.getElementById("instruction_button")
-instruction_button.addEventListener('click', openInstruction)
+// document.getElementById("instruction_button")
+// instruction_button.addEventListener('click', openInstruction)
 
 document.getElementById("pause_button")
 pause_button.addEventListener("click", togglePause)
