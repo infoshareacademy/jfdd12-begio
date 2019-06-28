@@ -168,16 +168,28 @@ const closeInstruction = () => {
 const openInstruction = () => {
     lost.style.display = "none"
     button_start.style.display = "none"
-    instruction.style.display = 'block'
+    close_instruction.style.display = "block"
+    instruction.style.display = "block"
     closeRanking()
     pause()
 }
 
+function countdown() {
+    let timeleft = 3;
+    document.getElementById("counter").hidden = false
+    let downloadTimer = setInterval(function () {
+        timeleft--;
+        document.getElementById("countdowntimer").textContent = timeleft;
+        if (timeleft <= 0)
+            clearInterval(downloadTimer)
+    }, 1000);
+}
+
 const startGameButton = () => {
-    getready.style.display = "block"
     closeInstruction()
+    countdown()
     setTimeout(() => {
-        getready.style.display = "none"
+        counter.style.display = "none"
         play()
     }, 3000);
 
@@ -287,8 +299,10 @@ function loop(time) {
 }
 
 function startGame() {
+    close_instruction.style.display = "none"
     loop(lastTime)
 }
+
 function restartBackgroundPosition() {
     let backgroundObiectsArray = [backgroundObj, secondBackgroundObj, baseObj]
     backgroundObiectsArray.forEach(object =>
@@ -381,7 +395,7 @@ const animationSpeed = 6
 function animateObstacle(obstacleObject) {
     obstacleObject.x -= animationSpeed
     console.log(obstacleObject.x)
-    if (obstacleObject.x < - obstacleObject.width) {
+    if (obstacleObject.x < -obstacleObject.width) {
         obstacleObject.x = 1100
         getRandomNumberForSingleObstacle()
     }
@@ -403,4 +417,3 @@ function collision(enemy) {
     }
 
 }
-
