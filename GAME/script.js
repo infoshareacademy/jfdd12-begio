@@ -9,11 +9,18 @@ let dresik
 let dresik2
 let heroImage
 let obstacleNumber
+let doubleObstacleNumber
 let seagull
 let requestAnimationFrameId = 0
 let lastTime = 0
+let scoreTime = 0
 let isPlaying = false
 let isRankingOpen = false
+let animationSpeed = 6
+let startRandomNumber = 1
+let endRandomNumber = 4
+let obstacleShift = 500
+
 
 let backgroundObj = {
     x: 0,
@@ -37,7 +44,7 @@ let baseObj = {
 }
 
 let hero = {
-    x: 300,
+    x: 100,
     y: HEIGHT - 200,
     height: 148,
     width: 144
@@ -57,6 +64,13 @@ let dresikObj = {
     height: 90
 }
 
+let secondDresikObj = {
+    x: 1700,
+    y: HEIGHT - 138,
+    width: 56,
+    height: 90
+}
+
 
 let seagullObj = {
     x: 1100,
@@ -67,10 +81,9 @@ let seagullObj = {
 
 let FRAME_X = 0
 let FRAME_Y = 0
-let delta = 0
 let frameCount = 0
 
-let jumpSpeed = 5
+let jumpSpeed = 10
 let maxJumpHeight = 300
 let currentJumpHeight = 0
 let isHeroJumping = false
@@ -283,11 +296,25 @@ function heroMovement() {
 }
 
 getRandomNumberForSingleObstacle()
+getRandomNumberForDoubleObstacle()
+
+function drawObscale(wchichOne){
+    if(wchichOne = 1){
+        drawSingleObstacle(obstacleNumber)
+    }
+    else if(wchichOne = 2){
+
+    }
+}
 
 function loop(time) {
+    //console.log(time)
     frameCount++
     lastTime = time
     if (isPlaying) {
+        scoreTime += 16
+        console.log(scoreTime / 1000)
+        difficultLevel(scoreTime)
         drawBackground()
         drawImage(baseImage, baseObj.x, baseObj.y, baseObj.width, baseObj.height)
         animateHero()
@@ -321,9 +348,13 @@ function restartGame() {
     frameCount = 0
     isPlaying = true
     lastTime = 0
+    scoreTime = 0
+    animationSpeed = 6
+    startRandomNumber = 1
+    endRandomNumber = 4
     FRAME_X = 0
     FRAME_Y = 0
-    delta = 0
+    secondDresikObj.x = 1700
     restartBackgroundPosition()
     restartObstaclePosition()
     getRandomNumberForSingleObstacle()
@@ -339,7 +370,11 @@ function randomNumber(min, max) {
 }
 
 function getRandomNumberForSingleObstacle() {
-    obstacleNumber = randomNumber(1, 5)
+    obstacleNumber = randomNumber(startRandomNumber, endRandomNumber)
+}
+
+function getRandomNumberForDoubleObstacle() {
+    doubleObstacleNumber = randomNumber(1, 3)
 }
 
 function drawBackground() {
@@ -353,6 +388,7 @@ function drawSingleObstacle(obstacleNumber) {
             drawImage(manholl, manhollObj.x, manhollObj.y, manhollObj.width, manhollObj.height)
             animateObstacle(manhollObj)
             collision(manhollObj)
+            
             break
         case 2:
             drawImage(dresik, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
@@ -365,18 +401,47 @@ function drawSingleObstacle(obstacleNumber) {
             collision(dresikObj)
             break
         case 4:
+             drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
+            animateObstacle(seagullObj)
+            collision(seagullObj)
+            break
+        case 5:
             drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
             drawImage(manholl, manhollObj.x - 80, manhollObj.y + 20, manhollObj.width, manhollObj.height)
             animateObstacle(dresikObj)
             animateObstacle(manhollObj)
-            collision(manhollObj)
+            collisionDoubleObject(manhollObj, dresikObj)
             break
-        case 5:
-            drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
-            animateObstacle(seagullObj)
-            collision(seagullObj)
+        case 6:
+            drawDoubleObstacle(doubleObstacleNumber)
             break
         default:
+            break
+    }
+}
+
+
+function drawDoubleObstacle(doubleObstacleNumber) {
+    switch (doubleObstacleNumber) {
+        case 1:
+            drawImage(manholl, manhollObj.x, manhollObj.y, manhollObj.width, manhollObj.height)
+            drawImage(dresik, secondDresikObj.x, secondDresikObj.y, secondDresikObj.width, secondDresikObj.height)
+            animateDoubleObstacle(manhollObj, secondDresikObj)
+            collisionDoubleObject(manhollObj, secondDresikObj)
+            break
+        case 2:
+            drawImage(seagull, seagullObj.x, seagullObj.y, seagullObj.width, seagullObj.height)
+            drawImage(dresik, secondDresikObj.x, secondDresikObj.y, secondDresikObj.width, secondDresikObj.height)
+            animateDoubleObstacle(seagullObj, secondDresikObj)
+            collisionDoubleObject(seagullObj, secondDresikObj)
+            break
+        case 3:
+            drawImage(dresik2, dresikObj.x, dresikObj.y, dresikObj.width, dresikObj.height)
+            drawImage(dresik, secondDresikObj.x, secondDresikObj.y, secondDresikObj.width, secondDresikObj.height)
+            animateDoubleObstacle(dresikObj, secondDresikObj)
+            collisionDoubleObject(dresikObj, secondDresikObj)
+            break
+            default:
             break
     }
 }
@@ -390,12 +455,10 @@ function animateBackground(imageObject) {
     }
 }
 
-const animationSpeed = 6
 
 function animateObstacle(obstacleObject) {
     obstacleObject.x -= animationSpeed
-    console.log(obstacleObject.x)
-    if (obstacleObject.x < -obstacleObject.width) {
+    if (obstacleObject.x < - 100) {
         obstacleObject.x = 1100
         getRandomNumberForSingleObstacle()
     }
@@ -410,10 +473,51 @@ function collision(enemy) {
         hero.y + hero.height > enemy.y) {
         pause()
         lost.style.display = "block"
-        if (lost.style.display = "block") {
+        if (lost.style.display = "block") { //po co ten iffff????
             pause_button.style.display = "none"
         }
-
     }
-
 }
+
+
+function animateDoubleObstacle(firstObstacleObject, secondObstacleObject) {
+    firstObstacleObject.x -= animationSpeed
+    secondObstacleObject.x -= animationSpeed
+    if (firstObstacleObject.x < - firstObstacleObject.width && secondObstacleObject.x < - secondObstacleObject.width) {
+        firstObstacleObject.x = 1100
+        secondObstacleObject.x = 1700 
+        getRandomNumberForDoubleObstacle()
+        getRandomNumberForSingleObstacle()
+    }
+}
+
+
+function collisionDoubleObject(firsteEnemy, secondEnemy) {
+
+    if ((hero.x < (firsteEnemy.x + firsteEnemy.width) - 25 &&
+        (hero.x + hero.width) - 65 > firsteEnemy.x && //czo to 65 i 25???
+        hero.y <  firsteEnemy.y + firsteEnemy.height &&
+        hero.y + hero.height > firsteEnemy.y) ||
+        (hero.x < (secondEnemy.x + secondEnemy.width) - 25 &&
+        (hero.x + hero.width) - 65 > secondEnemy.x && 
+        hero.y <  secondEnemy.y + secondEnemy.height &&
+        hero.y + hero.height > secondEnemy.y)) {
+        pause()
+        lost.style.display = "block"
+        if (lost.style.display = "block") { //po co ten iffff????
+            pause_button.style.display = "none"
+        }
+    }
+}
+
+function difficultLevel(timeS){
+    timeLevel = timeS / 1000
+    if(timeLevel > 15 && timeLevel < 16){
+        animationSpeed = 9
+    }
+    else if(timeLevel > 20 && timeLevel < 21){
+        startRandomNumber = 5
+        endRandomNumber = 6
+    }
+}
+    
