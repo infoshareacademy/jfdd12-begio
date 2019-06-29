@@ -22,22 +22,29 @@
         KLIKNIJ! <strong>na SPACJĘ</strong> , aby przeskoczyć napotkaną
         przeszkodę, albo pozostań bez ruchu, aby nie capnęła cię mewa.
       </p>
-      <p>
-        <strong>UWAGA!</strong> Bądź czujny! Z czasem poziom gry
-        wzrasta!
-      </p>
+      <p><strong>UWAGA!</strong> Bądź czujny! Z czasem poziom gry wzrasta!</p>
       <p>Im dłużej wytrwasz "na mieście", tym lepszy uzyskasz wynik!</p>
+      <p>
+        Po zderzeniu z przeszkodą, wynik wraca do 0 i zaczynasz od nowa. Ranking
+        przechowuje <b>pięć wyników</b>, potem ulega wyzerowaniu. Najlepszy
+        wynik oznaczony jest czerwoną gwiazdką<img src="star2.png" />, pozostałe
+        mają kolor żółty <img src="star.png" />.
+      </p>
       <button id="button_start" class="startButton">START</button>
     </div>
 
     <div id="menu">
-      <div id="pause_button"><img src="play.png" /><br />Pauza/Play</div>
+      <div id="pause_button">
+        <img src="pause.png" /><img src="play.png" /><br />Pauza/Wznów
+      </div>
       <div id="score_button"><img src="score.png" /><br />Ranking</div>
       <div id="instruction_button">
         <img src="instruction.png" /><br />Instrukcja
       </div>
     </div>
-    <div id="counter" hidden=true> 
+    <div id="timer"></div>
+    <div id="getready">...przygotuj się!<br /><img src="count.gif" /></div>
+    <div id="counter" hidden="true">
       <p id="countdowntimer">3</p>
     </div>
     <div id="lost">
@@ -47,14 +54,7 @@
       </div>
       <img src="skull.jpg" />
     </div>
-    <div id="ranking">
-      <ul>
-        Ranking wyników
-        <li>Fist</li>
-        <li>Second</li>
-        <li>Third</li>
-      </ul>
-    </div>
+    <div id="ranking"></div>
     <script src="script.js"></script>
   </body>
 </html>
