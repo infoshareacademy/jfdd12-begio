@@ -15,11 +15,10 @@
 </head>
 
 <body id="body">
-    <!-- menu -->
     <div class="fixed-nav">
         <nav class="menu" id="menu">
             <div class="menuElements">
-                <img class="logo" src="img/logo.png">
+                <a href="#hero"><img class="logo" src="img/logo.png"></a>
                 <a id="hamburger"><img src="img/hamburger.png"></a>
             </div>
             <ul>
@@ -43,8 +42,6 @@
             </ul>
         </div>
     </div>
-    <!-- mobile menu -->
-
     <header id="hero" class="hero">
         <div class="bgc">
             <div class="headerTitle">
@@ -56,11 +53,9 @@
                     </p>
                 </div>
             </div>
-            <!-- hero -->
             <button onclick="window.location.href = '#email'">Zapisz się!</button>
         </div>
     </header>
-    <!-- 4 ikonki -->
     <h2 id="aboutShort" class="featsTitle"><img src="img/down.png"><br>Główne właściwości aplikacji</h2>
     <section class="featsShort">
         <div class="feats ">
@@ -82,7 +77,6 @@
             <p>Na podstawie twojego położenia znajdź wydarzenia znajdujące się w pobliżu. </p>
         </div>
     </section>
-    <!-- dej emaila -->
     <section id="email" class="contactUs">
         <div class="infoHead">
             <h2>Bądźmy w kontakcie</h2>
@@ -90,17 +84,40 @@
                 jedną
                 wiadomość.</p>
         </div>
-        <form class="mailForm" action="" method="POST">
-            <input type="email" name="email" placeholder="adres email" required
+        <div class="mailForm">   <!-- action="" method="POST" -->
+            <div class="popup">
+                <span class="popuptext" id="emptyEmail">
+                    <p>Pole nie może być puste!</p>
+                </span>
+            </div>
+            <div class="popup">
+                <span class="popuptext" id="invalidEmail">
+                    <p>Podany adres e-mail jest niepoprawny!</p>
+                </span>
+            </div>
+            <input type="email" name="email" id="emailInput" placeholder="adres email" required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-            <button>wyślij</button>
-        </form>
+            <button id="send_email">Wyslij</button>
+            <div class="popup">
+                <span class="popuptext" id="goodEmail">
+                    <button class="gameButtonNo" id="exitGameButton2" id="noThanks">x</button>
+                    <p>Dzięki za maila! W nagrodę zagraj w naszą grę!</p>
+                    <form>
+                        <input type="button" value="Przejdź do gry"class="gameButton" id="goToTheGame" onclick="window.location.href='/GAME/game.html'"/>
+                    </form>
+                </span>
+            </div>
+            <div class="popup">
+                <span class="popuptext" id="emailExist">
+                    <button class="gameButtonNo" id="exitGameButton1" id="noThanks">x</button>
+                        <p>Ten adres e-mail został już podany</p>
+                </span>
+            </div>
+        </div>
         <p>* Uzupełniając formularz zgadzasz się na przetwarzanie swoich informacji osobowych zgodnie z naszą
             Polityką
             Prywatności.</p>
     </section>
-
-    <!-- drużyna -->
     <section id="us" class="team">
         <h2><img src="img/down.png"><br>Nasz zespół</h2>
         <div class="membersBlock">
@@ -110,10 +127,10 @@
                     <img src="img/rabbit.png" alt="Team member">
                 </div>
                 <section class="mediaLink">
-                    <a href="https://www.facebook.com/ania.jelin">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/ania.jelin">
                         <img src="img/facebook2.png" alt="facebook page">
                     </a>
-                    <a href="https://www.google.com">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.google.com">
                         <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
@@ -124,10 +141,10 @@
                     <img src="img/rabbit.png" alt="Team member">
                 </div>
                 <section class="mediaLink">
-                    <a href="https://www.facebook.com/andrzej.zaborski">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/andrzej.zaborski">
                         <img src="img/facebook2.png" alt="facebook page">
                     </a>
-                    <a href="https://www.google.com">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.google.com">
                         <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
@@ -138,10 +155,10 @@
                     <img src="img/rabbit.png" alt="Team member">
                 </div>
                 <section class="mediaLink">
-                    <a href="https://www.facebook.com/inrestlessdream">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/inrestlessdream">
                         <img src="img/facebook2.png" alt="facebook page">
                     </a>
-                    <a href="https://www.google.com">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.google.com">
                         <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
@@ -152,17 +169,16 @@
                     <img src="img/rabbit.png" alt="Team member">
                 </div>
                 <section class="mediaLink">
-                    <a href="https://www.facebook.com/kamila.kochanowska.3">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/kamila.kochanowska.3">
                         <img src="img/facebook2.png" alt="facebook page">
                     </a>
-                    <a href="https://www.google.com">
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.google.com">
                         <img src="img/mypage.png" alt="page about me">
                     </a>
                 </section>
             </div>
         </div>
     </section>
-    <!-- długa lista funkcjonalności -->
     <section id="aboutLong" class="featsLong">
         <h2 class="h2featsLong"><img src="img/down.png"><br>Dowiedz się więcej o naszej aplikacji</h2>
         <div class="articlesContainer">
@@ -231,25 +247,25 @@
     <footer id="footer" class="footer">
 
         <ul>
-            <li><a href="#"><img src="img/facebook.png">
-                    <p>Odwiedź nas!</p>
-                </a>
+            <li><a href="none"><img src="img/facebook.png"></a>
+                <p>Odwiedź nas!</p>
+
             </li>
-            <li><a href="#"><img src="img/terms.png">
-                    <p>Warunki korzystania</p>
-                </a>
+            <li><a href="none"><img src="img/terms.png"></a>
+                <p>Warunki korzystania</p>
+
             </li>
-            <li><a href="#"><img src="img/law.png">
-                    <p>Prawa Autorskie</p>
-                </a>
+            <li><a href="none"><img src="img/law.png"></a>
+                <p>Prawa Autorskie</p>
+
             </li>
-            <li><a href="#"><img src="img/cal.png">
-                    <p>Ostatnia aktualizacja</p>
-                </a>
+            <li><a href="none"><img src="img/cal.png"></a>
+                <p>Ostatnia aktualizacja</p>
+
             </li>
-            <li><a href="#"><img src="img/actual.png">
-                    <p>Data wydania</p>
-                </a>
+            <li><a href="none"><img src="img/actual.png"></a>
+                <p>Data wydania</p>
+
             </li>
         </ul>
 

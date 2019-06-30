@@ -29,8 +29,9 @@ body {
 }
 
 .logo {
-    margin-left: 1em;
-    padding-top: 0.5em;
+
+    margin-left: 4em;
+    padding-top: 0.8em;
     position: absolute;
 }
 
@@ -67,22 +68,24 @@ body {
     display: none;
 }
 
-@media only screen and (max-width: 1187px) {
+@media only screen and (max-width: 1237px) {
     .menu {
         background-repeat: no-repeat;
-        background-image: url("logo2.png");
+        /* background-image: url("logo2.png"); */
         background-position: 1em;
         z-index: 2;
-        padding-top: 1.5em;
+
         transition: 0.3s;
     }
 
     .menuElements {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
 
     #hamburger {
+        padding-top: 1.5em;
+
         display: block;
         padding-bottom: 1.5em;
         cursor: pointer;
@@ -94,7 +97,8 @@ body {
     }
 
     .logo {
-        display: none;
+        margin-top: 0;
+        padding-top: 0.5;
     }
 
     #hiddenMenu {
@@ -146,46 +150,65 @@ body {
     }
 }
 
-@media only screen and (max-width: 350px) {
-    .menu {
-        background-repeat: no-repeat;
-        background-image: url("logo.png");
+
+@media only screen and (max-width: 420px) {
+    .logo {
+        margin-left: 0.5em
     }
+}
+
+@media only screen and (max-width: 350px) {
+    .logo {
+        width: 65%;
+
+    }
+
 }
 
 @media screen and (max-height: 370px) {
     #hiddenMenu.open > ul > li {
         padding: 0.6em;
     }
+
 }
 
 /* MENU END */
 
 /* FOOTER START */
 .footer {
+    display: flex;
+    justify-content: space-around;
     transition: 2s;
     background: #aaa6ba;
     color: white;
 }
 
 .footer ul {
+
     display: flex;
-    flex-flow: row;
     list-style: none;
-    justify-content: space-between;
-    padding: 2em;
+
 }
 
-.footer li:hover {
-    transition: 0.3s;
-    border-radius: 3em;
-    background: rgba(255, 255, 255, 0.185);
-}
 
-.footer > ul > li {
+
+.footer>ul>li {
+
     padding: 1em;
     font-size: 1.2em;
     text-align: center;
+
+}
+
+footer img {
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+footer img:hover {
+
+    background: rgba(255, 255, 255, 0.233);
+
 }
 
 .footer > ul > li > a:link {
@@ -197,11 +220,13 @@ body {
     color: white;
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 725px) {
     .footer ul {
         flex-flow: row wrap;
         justify-content: center;
     }
+
+
 }
 
 /* FOOTER END */
@@ -249,7 +274,7 @@ body {
     height: 40px;
     padding: 15px;
     border: 1px solid;
-    background: rgba(255, 255, 255, 0.5);
+    background: #E6E6FA;
     border-color: transparent;
     border-radius: 0.5em;
     box-sizing: border-box;
@@ -271,6 +296,7 @@ body {
 
 .mailForm > button:hover {
     background: rgba(173, 160, 160, 0.555);
+    cursor: pointer;
 }
 
 .contactUs > p {
@@ -279,14 +305,6 @@ body {
     color: white;
 }
 
-.mediaLink > a:link {
-    text-decoration: none;
-    color: white;
-}
-
-.mediaLink > a:hover {
-    padding-left: 0.5em;
-}
 
 @media (max-width: 499px) {
     .mailForm {
@@ -326,7 +344,7 @@ body {
 .featsLong .articlesContainer {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.377);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 2%;
 }
 
@@ -339,12 +357,13 @@ body {
 .featsLong .itemHeader i {
     margin-left: 20px;
     margin-right: 20px;
-    color: #7a7786;
+    color: rgb(61, 51, 107);
 }
 
-.featsLong .itemHeader > h2 {
-    font-size: 1em;
+.featsLong .itemHeader>h2 {
+    font-size: 1.2em;
     color: #49406d;
+    text-align: start;
 }
 
 .featsLong .itemHeader > i::before {
@@ -573,9 +592,20 @@ header.hero p {
     border: 0;
 }
 
-.mediaLink > a {
+
+.mediaLink>a>img:hover {
+    cursor: pointer;
+}
+
+.mediaLink>a {
     margin: 4px;
 }
+
+.mediaLink>a:link {
+    text-decoration: none;
+    color: white;
+}
+
 
 .circularPortrait img {
     border-radius: 50%;
@@ -587,6 +617,10 @@ header.hero p {
     .membersBlock {
         display: flex;
         flex-direction: column;
+    }
+
+    .teamMember {
+        padding-top: 3em;
     }
 }
 
@@ -691,3 +725,86 @@ h2.featsTitle {
 }
 
 /* Short features end */
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #8B008B	;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    border-radius: 0.7em;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  #8B008B	 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  .gameButton {
+    background-color: rgb(74, 65, 110);
+    border-style: none;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+    border-radius: 0.7em;
+    padding: 0.5em 1.5em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-bottom: 0.6em;
+}
+
+.gameButtonNo {
+    background-color: rgb(74, 65, 110);
+    border-style: none;
+    color: white;
+    text-align: center;
+    font-size: 0.7em;
+    border-radius: 0.7em;
+    padding: 0.5em 1.5em;
+    font-weight: bold;
+    margin-top: 0.5em;
+    margin-left: 94px;
+}
+
+.gameButtonNo:hover, .gameButton:hover {
+    background: rgba(173, 160, 160, 0.555);
+    cursor: pointer;
+}
